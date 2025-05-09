@@ -4,7 +4,7 @@ using Utils.Attributes;
 using Interfaces.IDamageable;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class BasicEnemyController : MonoBehaviour, IDamageable
+public class EnemyController : MonoBehaviour, IDamageable
 {
 
     #region Private references
@@ -14,6 +14,7 @@ public class BasicEnemyController : MonoBehaviour, IDamageable
     #region Behaviour
     [Header("Behaviour")]
     public Transform m_target;
+    [SerializeField][ReadOnly] private int m_currentPatrolPointIndex = 0;
     public Transform[] m_patrolPoints;
     public EnemyState m_startingState = EnemyState.Idle;
     [SerializeField][ReadOnly] private EnemyState m_currentState = EnemyState.Idle;
@@ -56,7 +57,34 @@ public class BasicEnemyController : MonoBehaviour, IDamageable
         }
     }
 
-    public void onDeath()
+    private void Update()
+    {
+        CheckView();
+        switch (m_currentState)
+        {
+            case EnemyState.Idle:
+                break;
+
+            case EnemyState.Patrol:
+                break;
+
+            case EnemyState.Chase:
+                break;
+
+            case EnemyState.Attack:
+                break;
+
+            case EnemyState.Dead:
+                break;
+        }
+    }
+
+    private void CheckView()
+    {
+        if (m_currentState == EnemyState.Dead) return;
+    }
+
+    public void OnDeath()
     {
     }
 }

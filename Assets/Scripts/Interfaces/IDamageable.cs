@@ -4,16 +4,17 @@ namespace Interfaces.IDamageable
     {
         float m_maxHealth { get; set; }
         float m_health { get; set; }
+        bool m_isDead => m_health <= 0;
 
         void TakeDamage(float damage)
         {
             m_health -= damage;
             if (m_health <= 0)
             {
-                onDeath();
+                OnDeath();
             }
         }
 
-        void onDeath();
+        void OnDeath();
     }
 }
