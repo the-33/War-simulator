@@ -103,9 +103,9 @@ Material:
     - _ZWrite: 1
     - _depth_fade: 2.74
     - _foam_depth: 10.45
-    - _foam_distance: 0.7
+    - _foam_distance: 2.49
     - _foam_power: 1
-    - _foam_scale: 8.79
+    - _foam_scale: 2
     - _foam_speed: 0.01
     - _foam_strength: 0
     - _fresnel_power: 1.12
