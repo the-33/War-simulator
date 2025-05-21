@@ -11,8 +11,6 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-
         if (!killYourself)
         {
             transform.position = Vector3.zero;
