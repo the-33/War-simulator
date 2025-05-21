@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/PlayerBullet.prefab.meta
 guid: a8fe9b7ffc019ef428d53cdf756c0968
 PrefabImporter:
+========
+guid: f5393abe15bff5942a1f7761b8252ad4
+DefaultImporter:
+>>>>>>>> 1ce29596592bef74cb28e89fbf7a442f6bb732e6:Assets/ImportedAssets/Z ! Low Poly Nature Pack/Help.pdf.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
