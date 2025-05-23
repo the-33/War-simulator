@@ -82,7 +82,7 @@ public class PlayerShooting : MonoBehaviour
                 Bullet bulletScr = bullet.GetComponent<Bullet>();
                 bulletScr.waiting = false;
                 bulletScr.rb.isKinematic = false;
-                bulletScr.collider.enabled = true;
+                bulletScr.GetComponent<Collider>().enabled = true;
                 bullet.transform.position = shootingPoint.position + shootingPoint.forward * 0.5f;
                 bullet.transform.rotation = shootingPoint.rotation;
             }

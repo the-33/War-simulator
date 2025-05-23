@@ -184,4 +184,5 @@ MonoBehaviour:
   waiting: 0
   killYourself: 0
   rb: {fileID: 268301563536721711}
-  collider: {fileID: 1690997325214255333}
+  _collider: {fileID: 1690997325214255333}
+  shotDecal: {fileID: 9087690275312354726, guid: d0d745db4009c84478d0d28f9c611fd6, type: 3}

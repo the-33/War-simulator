@@ -7,15 +7,19 @@ public class Bullet : MonoBehaviour
     public bool killYourself = false;
 
     public Rigidbody rb;
-    public Collider collider;
+    public Collider _collider;
+
+    public GameObject shotDecal;
 
     private void OnCollisionEnter(Collision collision)
     {
+        Instantiate(shotDecal, transform.position, Quaternion.LookRotation(transform.forward));
+
         if (!killYourself)
         {
             transform.position = Vector3.zero;
             rb.isKinematic = true;
-            collider.enabled = false;
+            _collider.enabled = false;
             waiting = true;
         }
         else Destroy(gameObject);
