@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5365788289181453104}
   m_Layer: 0
   m_Name: PT_Pine_Tree_03_green
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

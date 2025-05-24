@@ -2,6 +2,7 @@ using NUnit.Framework;
 using StarterAssets;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -24,6 +25,12 @@ public class PlayerShooting : MonoBehaviour
 
     private List<GameObject> bulletPool = new();
     public int maxBulletsInScene = 20;
+
+    private bool previousNightVision = false;
+
+    public Volume volume;
+    public VolumeProfile normalProfile;
+    public VolumeProfile nightVisionProfile;
 
     private void handleInputs()
     {
@@ -48,6 +55,23 @@ public class PlayerShooting : MonoBehaviour
         {
             if (_input.reload) _input.reload = false;
             reloading = false;
+        }
+
+        if (!_input.nightVision)
+        {
+            if (previousNightVision)
+            {
+                volume.profile = normalProfile;
+                previousNightVision = false;
+            }
+        }
+        else
+        {
+            if (!previousNightVision)
+            {
+                volume.profile = nightVisionProfile;
+                previousNightVision = true;
+            }
         }
     }
 

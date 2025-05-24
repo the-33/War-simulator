@@ -18,6 +18,7 @@ namespace StarterAssets
 		public bool reload;
 		public bool peekLeft;
 		public bool peekRight;
+		public bool nightVision;
 		public bool interact;
 
 		[Header("Movement Settings")]
@@ -26,6 +27,8 @@ namespace StarterAssets
 		[Header("Mouse Cursor Settings")]
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
+
+		private bool wasAiming = false;
 
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
@@ -81,6 +84,11 @@ namespace StarterAssets
 			PeekLeftInput(value.isPressed);
 		}
 
+		public void OnNightVision(InputValue value)
+		{
+			NightVisionInput(value.isPressed);
+		}
+
 		public void OnInteract(InputValue value)
 		{
 			InteractInput(value.isPressed);
@@ -106,10 +114,24 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
-			peekRight = false;
-			peekLeft = false;
-			crouch = false;
-		}
+            if (newSprintState) crouch = false;
+			if (newSprintState)
+			{
+				if (aim)
+				{
+					aim = false;
+					wasAiming = true;
+				}
+			}
+			else
+			{
+				if (wasAiming)
+				{
+					aim = true; 
+					wasAiming = false;
+				}
+			}
+        }
 
 		public void CrouchInput(bool newCrouchState)
 		{
@@ -134,19 +156,24 @@ namespace StarterAssets
 
 		public void PeekRightInput(bool newPeekState)
 		{
-			if (sprint) return;
+			if (reload) return;
 			peekRight = (newPeekState) ? !peekRight : peekRight;
 			peekLeft = (newPeekState) ? false : peekLeft;
 		}
 
 		public void PeekLeftInput(bool newPeekState)
 		{
-            if (sprint) return;
+            if (reload) return;
             peekLeft = (newPeekState) ? !peekLeft : peekLeft;
             peekRight = (newPeekState) ? false : peekRight;
         }
 
-		public void InteractInput(bool newInteractState)
+        public void NightVisionInput(bool newNightVisionState)
+        {
+            nightVision = (newNightVisionState) ? !nightVision : nightVision;
+        }
+
+        public void InteractInput(bool newInteractState)
 		{
 			interact = newInteractState;
 		}

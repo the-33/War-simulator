@@ -84,6 +84,8 @@ namespace StarterAssets
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
 
+		private PlayerShooting _shooting;
+
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -122,6 +124,7 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
+			_shooting = GetComponent<PlayerShooting>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -153,18 +156,20 @@ namespace StarterAssets
 
         private void HandlePeek()
         {
-            if (_input.peekRight)
+            if (_input.peekRight && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading)
             {
                 _targetPeekAngle = -PeekAngle;
                 _targetYawOffset = -PeekYawAngle;
             }
-            else if (_input.peekLeft)
+            else if (_input.peekLeft && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading)
             {
                 _targetPeekAngle = PeekAngle;
                 _targetYawOffset = PeekYawAngle;
             }
             else
             {
+				_input.peekLeft = false;
+				_input.peekRight = false;
                 _targetPeekAngle = 0f;
                 _targetYawOffset = 0f;
             }
@@ -206,7 +211,7 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+			float targetSpeed = (_input.sprint && !_shooting.reloading && !_shooting.aiming)  ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

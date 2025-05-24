@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
     m_Value: 2
@@ -55,7 +55,7 @@ MonoBehaviour:
   active: 1
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 2
   contrast:
     m_OverrideState: 1
     m_Value: 40
@@ -98,7 +98,7 @@ MonoBehaviour:
     m_Value: 65472
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0.8011806, b: 0.48113203, a: 1}
+    m_Value: {r: 0.68500304, g: 1, b: 0.48235297, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
