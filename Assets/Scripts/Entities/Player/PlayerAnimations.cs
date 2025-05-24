@@ -21,6 +21,10 @@ public class PlayerAnimations : MonoBehaviour
     public int aimingFov = 48;
     public float fovLerpSpeed = 10f;
 
+    public float standingSize = 2f;
+    public float crouchSize = 1f;
+    public float sizeLerpSpeed = 10f;
+
     private float currentFov;
 
     public void shoot()
@@ -74,6 +78,8 @@ public class PlayerAnimations : MonoBehaviour
         if (_playerShooting.reloading) _animator.SetBool("Reload", true);
         else _animator.SetBool("Reload", false);
 
+        float targetSize = (_input.crouch) ? crouchSize : standingSize;
+        transform.localScale = Vector3.one * Mathf.Lerp(transform.localScale.x, targetSize, Time.deltaTime * sizeLerpSpeed);
             
         if (_input.move != Vector2.zero)
         {

@@ -185,4 +185,29 @@ MonoBehaviour:
   killYourself: 0
   rb: {fileID: 268301563536721711}
   _collider: {fileID: 1690997325214255333}
-  shotDecal: {fileID: 9087690275312354726, guid: d0d745db4009c84478d0d28f9c611fd6, type: 3}
+  maxTimeAlive: 30
+  decalTags:
+  - Untagged
+  - Brick
+  - Concrete
+  - Flesh
+  - Glass
+  - Metal
+  - Rock
+  - Sandbag
+  - Sand
+  - Water
+  - Wood
+  decals:
+  - {fileID: 9087690275312354726, guid: d0d745db4009c84478d0d28f9c611fd6, type: 3}
+  - {fileID: 9087690275312354726, guid: d0d745db4009c84478d0d28f9c611fd6, type: 3}
+  - {fileID: 9087690275312354726, guid: 3f334b4a4c620de408eba68afff33e1e, type: 3}
+  - {fileID: 9087690275312354726, guid: 32846a5e4f3dce040b8dd2f18adcb269, type: 3}
+  - {fileID: 9087690275312354726, guid: 8ccbfae5e4c300148b8bcbeb8f3db459, type: 3}
+  - {fileID: 9087690275312354726, guid: 91e91d5b14b4bce49a189f70042ff39f, type: 3}
+  - {fileID: 9087690275312354726, guid: a57fd05ec8215ba42860b1b770ea4e50, type: 3}
+  - {fileID: 9087690275312354726, guid: 9d9defa47e7c38447b80956d808b4598, type: 3}
+  - {fileID: 9087690275312354726, guid: 20eeb687db656444b83a8e9b52b3ae31, type: 3}
+  - {fileID: 9087690275312354726, guid: 3e4f6309ae458af44bf96bf4712d30c9, type: 3}
+  - {fileID: 9087690275312354726, guid: 993d335cbb4259047858b0609275998f, type: 3}
+  defaultDecal: {fileID: 0}

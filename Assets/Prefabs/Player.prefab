@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1753845302103741997}
   - component: {fileID: 8087998652454590909}
   - component: {fileID: 3518786485052999011}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: WeaponCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4612741492220014195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 37230940158336376}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerCameraRoot
   m_TagString: CinemachineTarget
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489443485785878963}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 5694774685407222151}
   - component: {fileID: 2334430880534365995}
   - component: {fileID: 736597806147044012}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 152
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -312,7 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1204149407568059497}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 4181395123942503556}
   - component: {fileID: 2072308468931921597}
   - component: {fileID: 3123824135393451259}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -369,8 +369,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 164, y: 117.630005, z: 644}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 37230940158336376}
   - {fileID: 6512672154420023403}
@@ -389,7 +389,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 24
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -413,8 +413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 6
+  MoveSpeed: 6
+  SprintSpeed: 12
   RotationSpeed: 1
   SpeedChangeRate: 10
   JumpHeight: 0.8
@@ -430,6 +430,10 @@ MonoBehaviour:
   CinemachineCameraTarget: {fileID: 1489443485785878963}
   TopClamp: 89
   BottomClamp: -89
+  PeekAngle: 15
+  PeekSmoothing: 10
+  PeekYawAngle: 10
+  PeekLateralOffset: 0.1
 --- !u!114 &1421311344553009930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +471,9 @@ MonoBehaviour:
   fire: 0
   aim: 0
   reload: 0
+  peekLeft: 0
+  peekRight: 0
+  interact: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -608,8 +615,11 @@ MonoBehaviour:
   mainCamera: {fileID: 0}
   weaponCamera: {fileID: 8087998652454590909}
   normalFov: 50
-  aimingFov: 35
-  fovLerpSpeed: 6
+  aimingFov: 30
+  fovLerpSpeed: 10
+  standingSize: 2
+  crouchSize: 1.25
+  sizeLerpSpeed: 10
 --- !u!114 &3123824135393451259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,6 +638,7 @@ MonoBehaviour:
   maxBulletsPerMag: 30
   numberOfMags: 5
   mags: 
+  uIMags: []
   bulletPrefab: {fileID: 9179330517485575484, guid: a8fe9b7ffc019ef428d53cdf756c0968, type: 3}
   shootingPoint: {fileID: 4612741492220014195}
   shootingForce: 500
@@ -696,7 +707,8 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: d9e2a0d95283bc944b4f25b21797fe27, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64838730665394400, guid: 586bb7eb152304c49b7fc8d4f71bec36, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -717,6 +729,10 @@ PrefabInstance:
     - target: {fileID: 131604, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
       propertyPath: m_Name
       value: Bullet_Shell_FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 131604, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 484892, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -817,9 +833,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6757608766607261811}
     m_Modifications:
+    - target: {fileID: 126012, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 157586, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_Name
       value: GunShot_Smoke_FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 157586, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 488920, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -862,6 +886,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 1
       objectReference: {fileID: 0}
@@ -880,6 +908,10 @@ PrefabInstance:
     - target: {fileID: 19856704, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 19885060, guid: 2574ca206a571a342a7fab69fdfb87aa, type: 3}
       propertyPath: InitialModule.startSize.scalar

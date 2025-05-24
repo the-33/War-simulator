@@ -16,6 +16,9 @@ namespace StarterAssets
 		public bool fire;
 		public bool aim;
 		public bool reload;
+		public bool peekLeft;
+		public bool peekRight;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -63,10 +66,25 @@ namespace StarterAssets
 			AimInput(value.isPressed);
         }
 
-        public void OnReload(InputValue value)
+		public void OnReload(InputValue value)
 		{
-			ReloadInput(value.isPressed);	
-		}	
+			ReloadInput(value.isPressed);
+		}
+
+		public void OnPeekRight(InputValue value)
+		{
+			PeekRightInput(value.isPressed);
+		}
+
+		public void OnPeekLeft(InputValue value)
+		{
+			PeekLeftInput(value.isPressed);
+		}
+
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+		}
 #endif
 
 
@@ -88,10 +106,14 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+			peekRight = false;
+			peekLeft = false;
+			crouch = false;
 		}
 
 		public void CrouchInput(bool newCrouchState)
 		{
+			if (sprint) return;
 			crouch = (newCrouchState) ? !crouch : crouch;
 		}
 
@@ -108,6 +130,25 @@ namespace StarterAssets
 		public void ReloadInput(bool newReloadState)
 		{
 			reload = newReloadState;
+		}
+
+		public void PeekRightInput(bool newPeekState)
+		{
+			if (sprint) return;
+			peekRight = (newPeekState) ? !peekRight : peekRight;
+			peekLeft = (newPeekState) ? false : peekLeft;
+		}
+
+		public void PeekLeftInput(bool newPeekState)
+		{
+            if (sprint) return;
+            peekLeft = (newPeekState) ? !peekLeft : peekLeft;
+            peekRight = (newPeekState) ? false : peekRight;
+        }
+
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)

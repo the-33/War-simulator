@@ -14,6 +14,7 @@ public class PlayerShooting : MonoBehaviour
     public int maxBulletsPerMag = 30;
     public int numberOfMags = 5;
     [SerializeField] private int[] mags;
+    public UIMag[] uIMags;
 
     private int currentMagIndex;
 
@@ -56,14 +57,25 @@ public class PlayerShooting : MonoBehaviour
 
         for(int i = 1; i<numberOfMags; i++)
         {
-            if (mags[i] >= mags[nextMagIndex] && i != currentMagIndex) nextMagIndex = i;
+            if (mags[i] > mags[nextMagIndex] && i != currentMagIndex) nextMagIndex = i;
         }
 
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex]/30f, false);
         currentMagIndex = nextMagIndex;
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex]/30f, true);
 
         reloading = false;
 
         _input.reload = false;
+    }
+
+    public void replenishAmmo()
+    {
+        for (int i = 1; i < numberOfMags; i++)
+        {
+            mags[i] = maxBulletsPerMag;
+            uIMags[i].updateMag(1, i == currentMagIndex);
+        }
     }
 
     public void shoot()
@@ -79,10 +91,7 @@ public class PlayerShooting : MonoBehaviour
             bullet = bulletPool.Find(x => x.GetComponent<Bullet>().waiting);
             if (bullet != null)
             {
-                Bullet bulletScr = bullet.GetComponent<Bullet>();
-                bulletScr.waiting = false;
-                bulletScr.rb.isKinematic = false;
-                bulletScr.GetComponent<Collider>().enabled = true;
+                bullet.GetComponent<Bullet>().ActivateBullet();
                 bullet.transform.position = shootingPoint.position + shootingPoint.forward * 0.5f;
                 bullet.transform.rotation = shootingPoint.rotation;
             }
@@ -96,6 +105,7 @@ public class PlayerShooting : MonoBehaviour
         bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * shootingForce, ForceMode.VelocityChange);
 
         mags[currentMagIndex]--;
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / 30f, true);
     }
 
     private void Update()
@@ -108,7 +118,15 @@ public class PlayerShooting : MonoBehaviour
         _input = GetComponent<StarterAssetsInputs>();
 
         mags = new int[numberOfMags];
+        uIMags = new UIMag[numberOfMags];
+
+        for(int i = 0; i<numberOfMags; i++)
+        {
+            uIMags[i] = GameObject.Find("Magazine" + i).GetComponent<UIMag>();
+        }
+
         for (int i = 0; i<numberOfMags; i++) mags[i] = maxBulletsPerMag;
         currentMagIndex = 0;
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / 30f, true);
     }
 }

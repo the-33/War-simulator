@@ -51,8 +51,28 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
-		// cinemachine
-		private float _cinemachineTargetPitch;
+        [Header("Peek Settings")]
+        [Tooltip("Grados de inclinación al asomarse")]
+        public float PeekAngle = 15f;
+        [Tooltip("Velocidad de interpolación del asomarse")]
+        public float PeekSmoothing = 10f;
+
+        private float _targetPeekAngle = 0f;
+        private float _currentPeekAngle = 0f;
+
+        [Tooltip("Cuántos grados adicionales girar hacia los lados al asomarse")]
+        public float PeekYawAngle = 10f;
+
+        [Tooltip("Desplazamiento lateral al asomarse")]
+        public float PeekLateralOffset = 0.1f;
+
+        private float _currentYawOffset = 0f;
+        private float _targetYawOffset = 0f;
+
+        private Vector3 _initialCameraLocalPosition;
+
+        // cinemachine
+        private float _cinemachineTargetPitch;
 
 		// player
 		private float _speed;
@@ -97,7 +117,8 @@ namespace StarterAssets
 
 		private void Start()
 		{
-			_controller = GetComponent<CharacterController>();
+            _initialCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
+            _controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
 			_playerInput = GetComponent<PlayerInput>();
@@ -120,6 +141,7 @@ namespace StarterAssets
 		private void LateUpdate()
 		{
 			CameraRotation();
+			HandlePeek();
 		}
 
 		private void GroundedCheck()
@@ -129,7 +151,37 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
-		private void CameraRotation()
+        private void HandlePeek()
+        {
+            if (_input.peekRight)
+            {
+                _targetPeekAngle = -PeekAngle;
+                _targetYawOffset = -PeekYawAngle;
+            }
+            else if (_input.peekLeft)
+            {
+                _targetPeekAngle = PeekAngle;
+                _targetYawOffset = PeekYawAngle;
+            }
+            else
+            {
+                _targetPeekAngle = 0f;
+                _targetYawOffset = 0f;
+            }
+
+            _currentPeekAngle = Mathf.Lerp(_currentPeekAngle, _targetPeekAngle, Time.deltaTime * PeekSmoothing);
+            _currentYawOffset = Mathf.Lerp(_currentYawOffset, _targetYawOffset, Time.deltaTime * PeekSmoothing);
+
+            // Apply combined rotation: pitch (up/down), yaw (left/right), roll (tilt)
+            CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, _currentYawOffset, _currentPeekAngle);
+
+            // Optional: apply a lateral offset to simulate leaning sideways
+            Vector3 offset = CinemachineCameraTarget.transform.right * (_currentYawOffset / PeekYawAngle * PeekLateralOffset);
+            CinemachineCameraTarget.transform.localPosition = _initialCameraLocalPosition + offset;
+        }
+
+
+        private void CameraRotation()
 		{
 			// if there is an input
 			if (_input.look.sqrMagnitude >= _threshold)
