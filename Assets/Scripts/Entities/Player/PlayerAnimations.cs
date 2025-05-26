@@ -14,7 +14,7 @@ public class PlayerAnimations : MonoBehaviour
 
     public Image crosshair;
 
-    public CinemachineVirtualCamera mainCamera;
+    public CinemachineCamera mainCamera;
     public Camera weaponCamera;
 
     public int normalFov = 50;
@@ -41,7 +41,7 @@ public class PlayerAnimations : MonoBehaviour
 
         crosshair.enabled = true;
         currentFov = normalFov;
-        mainCamera.m_Lens.FieldOfView = currentFov;
+        mainCamera.Lens.FieldOfView = currentFov;
         weaponCamera.fieldOfView = currentFov;
     }
 
@@ -72,7 +72,7 @@ public class PlayerAnimations : MonoBehaviour
 
         float targetFov = _playerShooting.aiming ? aimingFov : normalFov;
         currentFov = Mathf.Lerp(currentFov, targetFov, Time.deltaTime * fovLerpSpeed);
-        mainCamera.m_Lens.FieldOfView = currentFov;
+        mainCamera.Lens.FieldOfView = currentFov;
         weaponCamera.fieldOfView = currentFov;
 
         if (_playerShooting.reloading) _animator.SetBool("Reload", true);
