@@ -305,7 +305,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -5531,7 +5531,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1644287097}
-  m_CullTransparentMesh: 1
+  m_CullTransparentMesh: 0
 --- !u!1001 &1656567358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6462,6 +6462,18 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64999483580482282, guid: 79ca462c8174cc540b7bf40fe738186c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 73ea2a9491c908b43a9ace253b38a134, type: 3}
+    - target: {fileID: 64999483580482282, guid: 79ca462c8174cc540b7bf40fe738186c, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64999483580482282, guid: 79ca462c8174cc540b7bf40fe738186c, type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6715,22 +6727,6 @@ PrefabInstance:
       propertyPath: volume
       value: 
       objectReference: {fileID: 136692536}
-    - target: {fileID: 3123824135393451259, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: normalProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: 32f24e7bcd41f4d48b0a70b0af6d67ac, type: 2}
-    - target: {fileID: 3123824135393451259, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: nightVisionProfile
-      value: 
-      objectReference: {fileID: 11400000, guid: db4e5945af5d7ac4ca19f3491d571798, type: 2}
-    - target: {fileID: 3282985794855249229, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: m_TagString
-      value: Flesh
-      objectReference: {fileID: 0}
-    - target: {fileID: 3479141248731611344, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6279309105660240695, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 164

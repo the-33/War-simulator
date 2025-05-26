@@ -207,7 +207,7 @@ GameObject:
   - component: {fileID: 736597806147044012}
   m_Layer: 3
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Flesh
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -396,7 +396,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 30
+  m_SlopeLimit: 45
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
@@ -473,6 +473,7 @@ MonoBehaviour:
   reload: 0
   peekLeft: 0
   peekRight: 0
+  nightVision: 0
   interact: 0
   analogMovement: 0
   cursorLocked: 1
@@ -643,6 +644,9 @@ MonoBehaviour:
   shootingPoint: {fileID: 4612741492220014195}
   shootingForce: 500
   maxBulletsInScene: 20
+  volume: {fileID: 0}
+  normalProfile: {fileID: 11400000, guid: 32f24e7bcd41f4d48b0a70b0af6d67ac, type: 2}
+  nightVisionProfile: {fileID: 11400000, guid: db4e5945af5d7ac4ca19f3491d571798, type: 2}
 --- !u!1001 &3222558297760095644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -785,6 +789,10 @@ PrefabInstance:
     - target: {fileID: 19876208, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
       propertyPath: moveWithTransform
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19876208, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 19876208, guid: 8698f59a8ea9a0c449a001968fa1db7f, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
