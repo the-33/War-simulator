@@ -4,15 +4,18 @@ using Utils.Attributes;
 using Interfaces.IDamageable;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(EnemyVision))] //Remove if vision is snapped to model element
-[RequireComponent(typeof(EnemyHearing))]
-public class EnemyController : MonoBehaviour, IDamageable
+[RequireComponent(typeof(VisionController))] //Remove if vision is snapped to model element
+[RequireComponent(typeof(HearingController))]
+[RequireComponent(typeof(SquadController))]
+public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, ITargetSpotter
 {
 
     #region Private references
     private NavMeshAgent m_agent;
-    private EnemyVision m_vision;
-    private EnemyHearing m_hearing;
+    private VisionController m_vision;
+    private HearingController m_hearing;
+    private SquadController m_squadController;
+
     #endregion
 
     #region Behaviour
@@ -30,6 +33,10 @@ public class EnemyController : MonoBehaviour, IDamageable
     [SerializeField] private float m_alertedTime = 5f;
     private float m_alertedTimer = 0f;
 
+    //Spotting
+    [SerializeField] private float m_spottingTime = 2f;
+    private float m_spottingTimer = 0f;
+
     #endregion
 
     #region Health
@@ -43,8 +50,9 @@ public class EnemyController : MonoBehaviour, IDamageable
     private void Awake()
     {
         m_agent = GetComponent<NavMeshAgent>();
-        m_vision = GetComponent<EnemyVision>();
-        m_hearing = GetComponent<EnemyHearing>();
+        m_vision = GetComponent<VisionController>();
+        m_hearing = GetComponent<HearingController>();
+        m_squadController = GetComponent<SquadController>();
 
         if (m_WaypointController != null)
         {
@@ -82,9 +90,6 @@ public class EnemyController : MonoBehaviour, IDamageable
 
     private void Update()
     {
-
-        CheckView();
-        CheckSound();
         switch (m_currentState)
         {
             case EnemyStateEnum.IDDLE_PATROL:
@@ -124,6 +129,15 @@ public class EnemyController : MonoBehaviour, IDamageable
 
             //Set the next patrol point
             m_agent.SetDestination(m_patrolPoints[m_currentPatrolPoint]);
+
+            //Send Testing event
+            TestingEvent test = new TestingEvent
+            {
+                Message = $"Enemy reached patrol point {m_currentPatrolPoint}"
+            };
+
+            m_squadController.SendSquadEvent(test);
+
         }
     }
 
@@ -154,28 +168,52 @@ public class EnemyController : MonoBehaviour, IDamageable
     }
     #endregion
 
-    private void CheckView()
-    {
-        if (m_vision.CanSeeAnyTarget())
-        {
-
-        }
-        else
-        {
-
-        }
-        //TODO: Check enemy view
-    }
-
-    private void CheckSound()
-    {
-        //TODO: Check enemy sound
-    }
-
+    #region IDamageable
     public void OnDeath()
     {
 
     }
+
+    public void OnDamaged()
+    {
+
+    }
+    #endregion
+
+    #region ISquadMember
+    public void OnSquadEvent(SquadEvent squadEvent)
+    {
+        //Add Squad Event Logic here
+        if (squadEvent is TestingEvent testEvent)
+        {
+            Debug.Log($"Enemy {name} received squad event: {testEvent.Message}");
+        }
+        //Add other squad events here...
+
+        else
+        {
+            Debug.LogWarning($"Enemy {name} received unknown squad event.");
+        }
+    }
+    #endregion
+
+
+    #region ITargetSpotter
+    public void SpotTarget()
+    {
+        m_spottingTimer += Time.deltaTime;
+        if (m_spottingTimer >= m_spottingTime)
+        {
+            m_spottingTimer = 0f;
+            // Logic to handle target spotted
+            Debug.Log($"{name} spotted a target!");
+            ChangeState(EnemyStateEnum.CHASING);
+        } else
+        {
+
+        }
+    }
+    #endregion
 }
 
 public enum EnemyStateEnum
