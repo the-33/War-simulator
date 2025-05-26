@@ -9,11 +9,14 @@ namespace Interfaces.IDamageable
         void TakeDamage(float damage)
         {
             m_health -= damage;
+            OnDamaged();
             if (m_health <= 0)
             {
                 OnDeath();
             }
         }
+
+        void OnDamaged();
 
         void OnDeath();
     }
