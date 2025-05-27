@@ -9052,6 +9052,18 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 501439871}
+    - target: {fileID: 3083088012542542531, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: PeekYawAngle
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083088012542542531, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: PeekSideOffset
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083088012542542531, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: PeekLateralOffset
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3123824135393451259, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: volume
       value: 

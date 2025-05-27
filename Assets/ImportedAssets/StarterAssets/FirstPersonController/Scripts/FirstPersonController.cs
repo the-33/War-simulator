@@ -52,24 +52,20 @@ namespace StarterAssets
 		public float BottomClamp = -90.0f;
 
         [Header("Peek Settings")]
-        [Tooltip("Grados de inclinación al asomarse")]
-        public float PeekAngle = 15f;
-        [Tooltip("Velocidad de interpolación del asomarse")]
-        public float PeekSmoothing = 10f;
+        [Tooltip("Desplazamiento lateral en metros al hacer peek")]
+        public float PeekSideOffset = 0.3f;
 
-        private float _targetPeekAngle = 0f;
-        private float _currentPeekAngle = 0f;
+        [Tooltip("Inclinación de cámara (roll) al hacer peek")]
+        public float PeekTiltAngle = 15f;
 
-        [Tooltip("Cuántos grados adicionales girar hacia los lados al asomarse")]
-        public float PeekYawAngle = 10f;
+        [Tooltip("Velocidad de interpolación del peek")]
+        public float PeekLerpSpeed = 10f;
 
-        [Tooltip("Desplazamiento lateral al asomarse")]
-        public float PeekLateralOffset = 0.1f;
-
-        private float _currentYawOffset = 0f;
-        private float _targetYawOffset = 0f;
+        private Vector3 _peekTargetPosition;
+        private Quaternion _peekTargetRotation;
 
         private Vector3 _initialCameraLocalPosition;
+        private Quaternion _initialCameraLocalRotation;
 
         // cinemachine
         private float _cinemachineTargetPitch;
@@ -120,6 +116,8 @@ namespace StarterAssets
 		private void Start()
 		{
             _initialCameraLocalPosition = CinemachineCameraTarget.transform.localPosition;
+            _initialCameraLocalRotation = CinemachineCameraTarget.transform.localRotation;
+
             _controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
@@ -156,34 +154,39 @@ namespace StarterAssets
 
         private void HandlePeek()
         {
-            if (_input.peekRight && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading)
+            bool peekingRight = _input.peekRight && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading;
+            bool peekingLeft = _input.peekLeft && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading;
+
+            if (peekingRight)
             {
-                _targetPeekAngle = -PeekAngle;
-                _targetYawOffset = -PeekYawAngle;
+                _peekTargetPosition = _initialCameraLocalPosition + Vector3.right * PeekSideOffset;
+                _peekTargetRotation = Quaternion.Euler(_cinemachineTargetPitch, 0f, -PeekTiltAngle);
             }
-            else if (_input.peekLeft && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading)
+            else if (peekingLeft)
             {
-                _targetPeekAngle = PeekAngle;
-                _targetYawOffset = PeekYawAngle;
+                _peekTargetPosition = _initialCameraLocalPosition + Vector3.left * PeekSideOffset;
+                _peekTargetRotation = Quaternion.Euler(_cinemachineTargetPitch, 0f, PeekTiltAngle);
             }
             else
             {
-				_input.peekLeft = false;
-				_input.peekRight = false;
-                _targetPeekAngle = 0f;
-                _targetYawOffset = 0f;
+                _peekTargetPosition = _initialCameraLocalPosition;
+                _peekTargetRotation = Quaternion.Euler(_cinemachineTargetPitch, 0f, 0f);
             }
 
-            _currentPeekAngle = Mathf.Lerp(_currentPeekAngle, _targetPeekAngle, Time.deltaTime * PeekSmoothing);
-            _currentYawOffset = Mathf.Lerp(_currentYawOffset, _targetYawOffset, Time.deltaTime * PeekSmoothing);
+            // Interpolamos suavemente la posición y rotación local de la cámara
+            CinemachineCameraTarget.transform.localPosition = Vector3.Lerp(
+                CinemachineCameraTarget.transform.localPosition,
+                _peekTargetPosition,
+                Time.deltaTime * PeekLerpSpeed
+            );
 
-            // Apply combined rotation: pitch (up/down), yaw (left/right), roll (tilt)
-            CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, _currentYawOffset, _currentPeekAngle);
-
-            // Optional: apply a lateral offset to simulate leaning sideways
-            Vector3 offset = CinemachineCameraTarget.transform.right * (_currentYawOffset / PeekYawAngle * PeekLateralOffset);
-            CinemachineCameraTarget.transform.localPosition = _initialCameraLocalPosition + offset;
+            CinemachineCameraTarget.transform.localRotation = Quaternion.Lerp(
+                CinemachineCameraTarget.transform.localRotation,
+                _peekTargetRotation,
+                Time.deltaTime * PeekLerpSpeed
+            );
         }
+
 
 
         private void CameraRotation()
@@ -200,11 +203,13 @@ namespace StarterAssets
 				// clamp our pitch rotation
 				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
-				// Update Cinemachine camera target pitch
-				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+                // Update Cinemachine camera target pitch
+                // Solo modificar pitch, dejar yaw fijo en rotación, y no tocar roll
+                CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, CinemachineCameraTarget.transform.localRotation.eulerAngles.z);
 
-				// rotate the player left and right
-				transform.Rotate(Vector3.up * _rotationVelocity);
+
+                // rotate the player left and right
+                transform.Rotate(Vector3.up * _rotationVelocity);
 			}
 		}
 
