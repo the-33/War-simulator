@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1010026897142039336}
   - component: {fileID: 1668067552138123433}
   - component: {fileID: 9120985866285574187}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 268301563536721711}
   - component: {fileID: 1690997325214255333}
   - component: {fileID: 5166367964016835440}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,4 +210,4 @@ MonoBehaviour:
   - {fileID: 9087690275312354726, guid: 20eeb687db656444b83a8e9b52b3ae31, type: 3}
   - {fileID: 9087690275312354726, guid: 3e4f6309ae458af44bf96bf4712d30c9, type: 3}
   - {fileID: 9087690275312354726, guid: 993d335cbb4259047858b0609275998f, type: 3}
-  defaultDecal: {fileID: 0}
+  defaultDecal: {fileID: 9087690275312354726, guid: d0d745db4009c84478d0d28f9c611fd6, type: 3}

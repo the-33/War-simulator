@@ -171,6 +171,8 @@ namespace StarterAssets
             {
                 _peekTargetPosition = _initialCameraLocalPosition;
                 _peekTargetRotation = Quaternion.Euler(_cinemachineTargetPitch, 0f, 0f);
+                _input.peekLeft = false;
+                _input.peekRight = false;
             }
 
             // Interpolamos suavemente la posición y rotación local de la cámara

@@ -1542,7 +1542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 63
+      value: 191
       objectReference: {fileID: 0}
     - target: {fileID: 9005220659476430821, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: m_projectionMatrixMode
@@ -9124,7 +9124,11 @@ PrefabInstance:
     - target: {fileID: 3123824135393451259, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: volume
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 724215053}
+    - target: {fileID: 3123824135393451259, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: normalProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 3dfe4f2bc61d95647b2259e86a604c53, type: 2}
     - target: {fileID: 6279309105660240695, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 181
