@@ -7,9 +7,12 @@ public class PlayerAnimations : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     private PlayerShooting _playerShooting;
+    private PlayerHealth _health;
     private Animator _animator;
 
-    public ParticleSystem shellEjection;
+    public Transform ShellEjectionPoint;
+    public GameObject ShellPrefab;
+    public float shellEjectionForce;
     public ParticleSystem shootingParticles;
 
     public Image crosshair;
@@ -27,9 +30,15 @@ public class PlayerAnimations : MonoBehaviour
 
     private float currentFov;
 
-    public void shoot()
+    public void shootAnimate()
     {
         shootingParticles.Play();
+    }
+
+    public void EjectShell()
+    {
+        var shell = Instantiate(ShellPrefab, ShellEjectionPoint.position, Quaternion.LookRotation(-ShellEjectionPoint.transform.right));
+        shell.GetComponent<Rigidbody>().AddForce(ShellEjectionPoint.transform.forward * shellEjectionForce, ForceMode.VelocityChange);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,6 +46,7 @@ public class PlayerAnimations : MonoBehaviour
     {
         _input = GetComponent<StarterAssetsInputs>();
         _playerShooting = GetComponent<PlayerShooting>();
+        _health = GetComponent<PlayerHealth>();
         _animator = GetComponent<Animator>();
 
         crosshair.enabled = true;
@@ -51,12 +61,10 @@ public class PlayerAnimations : MonoBehaviour
         if (_playerShooting.shooting)
         {
             _animator.SetBool("Shooting", true);
-            shellEjection.Play();
         }
         else
         {
             _animator.SetBool("Shooting", false);
-            shellEjection.Stop();
         }
 
         if (_playerShooting.aiming)
@@ -83,21 +91,32 @@ public class PlayerAnimations : MonoBehaviour
             
         if (_input.move != Vector2.zero)
         {
-            if (!_input.sprint)
-            {
-                _animator.SetBool("Walking", true);
-                _animator.SetBool("Running", false);
-            }
-            else
+            if (_input.sprint && !_playerShooting.aiming && !_health.healing && !_playerShooting.reloading)
             {
                 _animator.SetBool("Walking", false);
                 _animator.SetBool("Running", true);
+            }
+            else
+            {
+                _animator.SetBool("Walking", true);
+                _animator.SetBool("Running", false);
             }
         }
         else
         {
             _animator.SetBool("Walking", false);
             _animator.SetBool("Running", false);
+        }
+
+        if (_health.healing)
+        {
+            _animator.SetBool("DoingAction", true);
+            crosshair.enabled = false;
+        }
+        else
+        {
+            _animator.SetBool("DoingAction", false);
+            crosshair.enabled = true;
         }
     }
 }

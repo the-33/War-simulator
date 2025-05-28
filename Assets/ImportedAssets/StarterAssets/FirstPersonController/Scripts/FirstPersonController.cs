@@ -81,6 +81,7 @@ namespace StarterAssets
 		private float _fallTimeoutDelta;
 
 		private PlayerShooting _shooting;
+		private PlayerHealth _health;
 
 	
 #if ENABLE_INPUT_SYSTEM
@@ -120,9 +121,10 @@ namespace StarterAssets
 
             _controller = GetComponent<CharacterController>();
 			_input = GetComponent<StarterAssetsInputs>();
+            _shooting = GetComponent<PlayerShooting>();
+            _health = GetComponent<PlayerHealth>();
 #if ENABLE_INPUT_SYSTEM
-			_playerInput = GetComponent<PlayerInput>();
-			_shooting = GetComponent<PlayerShooting>();
+            _playerInput = GetComponent<PlayerInput>();
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -154,8 +156,8 @@ namespace StarterAssets
 
         private void HandlePeek()
         {
-            bool peekingRight = _input.peekRight && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading;
-            bool peekingLeft = _input.peekLeft && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading;
+            bool peekingRight = _input.peekRight && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading && !_health.healing;
+            bool peekingLeft = _input.peekLeft && (!_input.sprint || (_input.sprint && _input.aim)) && !_shooting.reloading && !_health.healing;
 
             if (peekingRight)
             {
@@ -218,7 +220,7 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = (_input.sprint && !_shooting.reloading && !_shooting.aiming)  ? SprintSpeed : MoveSpeed;
+			float targetSpeed = (_input.sprint && !_shooting.reloading && !_shooting.aiming && !_health.healing)  ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

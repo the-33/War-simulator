@@ -7,6 +7,7 @@ using UnityEngine.Rendering;
 public class PlayerShooting : MonoBehaviour
 {
     private StarterAssetsInputs _input;
+    private PlayerHealth _health;
 
     public bool shooting;
     public bool reloading;
@@ -34,13 +35,13 @@ public class PlayerShooting : MonoBehaviour
 
     private void handleInputs()
     {
-        if (_input.fire && mags[currentMagIndex] > 0 && !reloading) shooting = true;
+        if (_input.fire && mags[currentMagIndex] > 0 && !reloading && !_health.healing) shooting = true;
         else shooting = false;
 
-        if (_input.aim && !reloading) aiming = true;
+        if (_input.aim && !reloading && !_health.healing) aiming = true;
         else aiming = false;
 
-        if (_input.reload && mags[currentMagIndex] < maxBulletsPerMag)
+        if (_input.reload && mags[currentMagIndex] < maxBulletsPerMag && !_health.healing)
         {
             bool avaliableMag = false;
 
@@ -140,6 +141,7 @@ public class PlayerShooting : MonoBehaviour
     private void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
+        _health = GetComponent<PlayerHealth>();
 
         mags = new int[numberOfMags];
         uIMags = new UIMag[numberOfMags];

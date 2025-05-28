@@ -20,6 +20,7 @@ namespace StarterAssets
 		public bool peekRight;
 		public bool nightVision;
 		public bool interact;
+		public bool heal;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -30,8 +31,15 @@ namespace StarterAssets
 
 		private bool wasAiming = false;
 
+		private PlayerHealth _health;
+
+        private void Start()
+        {
+            _health = GetComponent<PlayerHealth>();
+        }
+
 #if ENABLE_INPUT_SYSTEM
-		public void OnMove(InputValue value)
+        public void OnMove(InputValue value)
 		{
 			MoveInput(value.Get<Vector2>());
 		}
@@ -93,6 +101,11 @@ namespace StarterAssets
 		{
 			InteractInput(value.isPressed);
 		}
+
+		public void OnHeal(InputValue value)
+		{
+			HealInput(value.isPressed);
+		}
 #endif
 
 
@@ -108,6 +121,7 @@ namespace StarterAssets
 
 		public void JumpInput(bool newJumpState)
 		{
+			if (_health.healing) return;
 			jump = newJumpState;
 		}
 
@@ -170,12 +184,18 @@ namespace StarterAssets
 
         public void NightVisionInput(bool newNightVisionState)
         {
+			if (_health.healing) return;
             nightVision = (newNightVisionState) ? !nightVision : nightVision;
         }
 
         public void InteractInput(bool newInteractState)
 		{
 			interact = newInteractState;
+		}
+
+		public void HealInput(bool newHealState)
+		{
+			heal = newHealState;
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)
