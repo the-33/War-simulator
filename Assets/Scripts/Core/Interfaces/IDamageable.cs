@@ -6,6 +6,10 @@ namespace Interfaces.IDamageable
         float m_health { get; set; }
         bool m_isDead => m_health <= 0;
 
+        /// <summary>
+        /// Applies damage to the entity.
+        /// </summary>
+        /// <param name="damage"></param>
         void TakeDamage(float damage)
         {
             m_health -= damage;
@@ -16,8 +20,14 @@ namespace Interfaces.IDamageable
             }
         }
 
+        /// <summary>
+        /// Called each time the entity is damaged.
+        /// </summary>
         void OnDamaged();
 
+        /// <summary>
+        /// Called when the entity's health reaches zero.
+        /// </summary>
         void OnDeath();
     }
 }

@@ -2,41 +2,38 @@ using UnityEngine;
 using UnityEngine.AI;
 using Utils.Attributes;
 using Interfaces.IDamageable;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(VisionController))] //Remove if vision is snapped to model element
+[RequireComponent(typeof(VisionController))]
 [RequireComponent(typeof(HearingController))]
 [RequireComponent(typeof(SquadController))]
-public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, ITargetSpotter
+[RequireComponent(typeof(PatrolBehaviour))]
+[RequireComponent(typeof(SearchBehaviour))]
+[RequireComponent(typeof(ChaseBehaviour))]
+public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPerceptionReceiver
 {
-
     #region Private references
-    private NavMeshAgent m_agent;
     private VisionController m_vision;
     private HearingController m_hearing;
     private SquadController m_squadController;
-
+    private PatrolBehaviour m_PatrolBehaviour;
+    private SearchBehaviour m_SearchBehaviour;
+    private ChaseBehaviour m_ChaseBehaviour;
     #endregion
 
     #region Behaviour
     [Header("Behaviour")]
     //State machine
     public EnemyStateEnum m_startingState = EnemyStateEnum.IDDLE_PATROL;
-    [SerializeField][ReadOnly] private EnemyStateEnum m_currentState = EnemyStateEnum.IDDLE_PATROL;
-
-    //Patrolling
-    public WaypointController m_WaypointController;
-    private Vector3[] m_patrolPoints;
-    [SerializeField][ReadOnly] private int m_currentPatrolPoint = 0;
+    [SerializeField][ReadOnly] private EnemyStateEnum m_currentState;
 
     //Alerted
-    [SerializeField] private float m_alertedTime = 5f;
+    [SerializeField]
+    private float m_alertedTime = 5f;
     private float m_alertedTimer = 0f;
 
-    //Spotting
-    [SerializeField] private float m_spottingTime = 2f;
-    private float m_spottingTimer = 0f;
-
+    private Vector3? m_suspectPosition; // Position to search when alerted
     #endregion
 
     #region Health
@@ -49,124 +46,152 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, ITarget
 
     private void Awake()
     {
-        m_agent = GetComponent<NavMeshAgent>();
         m_vision = GetComponent<VisionController>();
         m_hearing = GetComponent<HearingController>();
         m_squadController = GetComponent<SquadController>();
+        m_PatrolBehaviour = GetComponent<PatrolBehaviour>();
+        m_SearchBehaviour = GetComponent<SearchBehaviour>();
+        m_ChaseBehaviour = GetComponent<ChaseBehaviour>();
+    }
 
-        if (m_WaypointController != null)
-        {
-            m_patrolPoints = m_WaypointController.Waypoints;
-            if (m_patrolPoints.Length == 0)
-            {
-                m_patrolPoints = new Vector3[1];
-                m_patrolPoints[0] = transform.position;
-            }
-        }
-        else
-        {
-            m_patrolPoints = new Vector3[1];
-            m_patrolPoints[0] = transform.position;
-        }
-
+    private void Start()
+    {
         ChangeState(m_startingState);
     }
 
+    private void OnEnable()
+    {
+        //Subscribe to events
+        m_vision.OnSuspiciousSight += OnSuspiciousSight;
+        m_vision.OnConfirmedSight += OnConfirmedSight;
+        m_hearing.OnSuspiciousSound += OnSuspiciousSound;
+    }
+
+    private void OnDisable()
+    {
+        //Unsubscribe from events
+        m_vision.OnSuspiciousSight -= OnSuspiciousSight;
+        m_vision.OnConfirmedSight -= OnConfirmedSight;
+        m_hearing.OnSuspiciousSound -= OnSuspiciousSound;
+    }
+
+    #region State Machine
     public void ChangeState(EnemyStateEnum newState)
     {
+        var previousState = m_currentState;
         m_currentState = newState;
-        switch (m_currentState)
+        OnExitState(previousState);
+        OnEnterState(newState);
+    }
+
+    public bool TryChangeState(EnemyStateEnum newState)
+    {
+        if (m_currentState == newState)
+            return false;
+
+        if (validTransitions.TryGetValue(newState, out var allowedFromStates) &&
+        allowedFromStates.Contains(m_currentState))
+        {
+            ChangeState(newState);
+            return true;
+        }
+        return false;
+    }
+
+    public void OnEnterState(EnemyStateEnum state)
+    {
+        switch (state)
         {
             case EnemyStateEnum.IDDLE_PATROL:
-                m_agent.SetDestination(m_patrolPoints[m_currentPatrolPoint]);
+                m_PatrolBehaviour?.Enter();
                 break;
             case EnemyStateEnum.ALERTED:
                 m_alertedTimer = m_alertedTime;
                 break;
+            case EnemyStateEnum.SEARCHING:
+                m_SearchBehaviour?.Enter(new SearchData
+                {
+                    Position = m_suspectPosition ?? transform.position,
+                    Duration = 5f // Default search duration, can be adjusted
+                });
+                break;
+            case EnemyStateEnum.CHASING:
+                m_ChaseBehaviour?.Enter();
+                break;
+            case EnemyStateEnum.ATTACKING:
+            case EnemyStateEnum.LOST_TARGET:
+            case EnemyStateEnum.CALLING_FOR_BACKUP:
+            case EnemyStateEnum.DEAD:
             default:
                 break;
         }
     }
+
+    public void OnExitState(EnemyStateEnum state)
+    {
+        switch (state)
+        {
+            case EnemyStateEnum.IDDLE_PATROL:
+                m_PatrolBehaviour?.Exit();
+                break;
+            case EnemyStateEnum.ALERTED:
+                m_alertedTimer = 0f;
+                break;
+            case EnemyStateEnum.SEARCHING:
+                m_SearchBehaviour?.Exit();
+                break;
+            case EnemyStateEnum.CHASING:
+                m_ChaseBehaviour?.Exit();
+                break;
+            case EnemyStateEnum.ATTACKING:
+            case EnemyStateEnum.LOST_TARGET:
+            case EnemyStateEnum.CALLING_FOR_BACKUP:
+            case EnemyStateEnum.DEAD:
+            default:
+                break;
+        }
+    }
+    #endregion
 
     private void Update()
     {
         switch (m_currentState)
         {
             case EnemyStateEnum.IDDLE_PATROL:
-                Patrol();
+                m_PatrolBehaviour?.Tick();
                 break;
             case EnemyStateEnum.ALERTED:
-                Alerted();
+                m_alertedTimer -= Time.deltaTime;
+                if (m_alertedTimer <= 0f)
+                {
+                    if (Utilities.RandBool())
+                    {
+                        TryChangeState(EnemyStateEnum.IDDLE_PATROL);
+                    }
+                    else
+                    {
+                        TryChangeState(EnemyStateEnum.SEARCHING);
+                    }
+                }
                 break;
+
             case EnemyStateEnum.SEARCHING:
-                Searching();
+                m_SearchBehaviour?.Tick();
+                if (m_SearchBehaviour.IsFinished)
+                {
+                    TryChangeState(EnemyStateEnum.IDDLE_PATROL);
+                }
                 break;
             case EnemyStateEnum.CHASING:
-                Chasing();
                 break;
             case EnemyStateEnum.ATTACKING:
-                break;
             case EnemyStateEnum.LOST_TARGET:
-                break;
             case EnemyStateEnum.CALLING_FOR_BACKUP:
-                break;
             case EnemyStateEnum.DEAD:
+            default:
                 break;
         }
     }
-
-    #region Enemy State Logic
-    private void Patrol()
-    {
-        //Check if the enemy is close to the patrol point
-        if (m_agent.remainingDistance == 0f && m_patrolPoints.Length > 1)
-        {
-            m_currentPatrolPoint++;
-            if (m_currentPatrolPoint >= m_patrolPoints.Length)
-            {
-                m_currentPatrolPoint = 0;
-            }
-
-            //Set the next patrol point
-            m_agent.SetDestination(m_patrolPoints[m_currentPatrolPoint]);
-
-            //Send Testing event
-            TestingEvent test = new TestingEvent
-            {
-                Message = $"Enemy reached patrol point {m_currentPatrolPoint}"
-            };
-
-            m_squadController.SendSquadEvent(test);
-
-        }
-    }
-
-    private void Alerted()
-    {
-        m_alertedTimer -= Time.deltaTime;
-        if (m_alertedTimer <= 0f)
-        {
-            if (Random.Range(0f, 1f) < 0.5f)
-            {
-                ChangeState(EnemyStateEnum.SEARCHING);
-            }
-            else
-            {
-                ChangeState(EnemyStateEnum.IDDLE_PATROL);
-            }
-        }
-    }
-
-    private void Searching()
-    {
-        //TODO: Make the enemy search for the player on the last known position
-    }
-
-    private void Chasing()
-    {
-
-    }
-    #endregion
 
     #region IDamageable
     public void OnDeath()
@@ -197,23 +222,36 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, ITarget
     }
     #endregion
 
-
-    #region ITargetSpotter
-    public void SpotTarget()
+    #region IPerceptionReciever
+    public void OnSuspiciousSight(Vector3 position)
     {
-        m_spottingTimer += Time.deltaTime;
-        if (m_spottingTimer >= m_spottingTime)
-        {
-            m_spottingTimer = 0f;
-            // Logic to handle target spotted
-            Debug.Log($"{name} spotted a target!");
-            ChangeState(EnemyStateEnum.CHASING);
-        } else
-        {
+        m_suspectPosition = position;
+        TryChangeState(EnemyStateEnum.ALERTED);
+    }
 
-        }
+    public void OnConfirmedSight(Vector3 entity)
+    {
+        TryChangeState(EnemyStateEnum.CHASING);
+    }
+
+    public void OnSuspiciousSound(Vector3 position)
+    {
+        m_suspectPosition = position;
+        TryChangeState(EnemyStateEnum.ALERTED);
     }
     #endregion
+
+    private static readonly Dictionary<EnemyStateEnum, HashSet<EnemyStateEnum>> validTransitions = new()
+    {
+    { EnemyStateEnum.IDDLE_PATROL, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.LOST_TARGET, EnemyStateEnum.CALLING_FOR_BACKUP } },
+    { EnemyStateEnum.ALERTED, new() { EnemyStateEnum.IDDLE_PATROL } },
+    { EnemyStateEnum.SEARCHING, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.LOST_TARGET } },
+    { EnemyStateEnum.CHASING, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.CALLING_FOR_BACKUP, EnemyStateEnum.ATTACKING } },
+    { EnemyStateEnum.ATTACKING, new() { EnemyStateEnum.CHASING } },
+    { EnemyStateEnum.LOST_TARGET, new() { EnemyStateEnum.CHASING, EnemyStateEnum.ATTACKING } },
+    { EnemyStateEnum.CALLING_FOR_BACKUP, new() { EnemyStateEnum.CHASING } },
+    { EnemyStateEnum.DEAD, new() { EnemyStateEnum.IDDLE_PATROL, EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.CHASING, EnemyStateEnum.ATTACKING, EnemyStateEnum.LOST_TARGET, EnemyStateEnum.CALLING_FOR_BACKUP } }
+    };
 }
 
 public enum EnemyStateEnum
@@ -227,3 +265,5 @@ public enum EnemyStateEnum
     CALLING_FOR_BACKUP, //-> Iddle, Chasing
     DEAD,
 }
+
+
