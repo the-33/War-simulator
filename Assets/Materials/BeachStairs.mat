@@ -27,6 +27,7 @@ Material:
   m_ValidKeywords:
   - _EMISSION
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+  - _SPECULAR_SETUP
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
@@ -121,17 +122,17 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.47
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _WorkflowMode: 1
+    - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.8235295, g: 0.65882355, b: 0.5254902, a: 1}
-    - _Color: {r: 0.8235295, g: 0.65882355, b: 0.5254902, a: 1}
+    - _BaseColor: {r: 0.5254902, g: 0.4862745, b: 0.4392157, a: 1}
+    - _Color: {r: 0.5254902, g: 0.48627448, b: 0.43921566, a: 1}
     - _EmissionColor: {r: 0.035849005, g: 0.02803412, b: 0.022929836, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
