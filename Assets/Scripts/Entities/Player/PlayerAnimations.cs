@@ -70,12 +70,10 @@ public class PlayerAnimations : MonoBehaviour
         if (_playerShooting.aiming)
         {
             _animator.SetBool("Aiming", true);
-            crosshair.enabled = false;
         }
         else
         {
             _animator.SetBool("Aiming", false);
-            crosshair.enabled = true;
         }
 
         float targetFov = _playerShooting.aiming ? aimingFov : normalFov;
@@ -111,12 +109,13 @@ public class PlayerAnimations : MonoBehaviour
         if (_health.healing)
         {
             _animator.SetBool("DoingAction", true);
-            crosshair.enabled = false;
         }
         else
         {
             _animator.SetBool("DoingAction", false);
-            crosshair.enabled = true;
         }
+
+        if (_health.healing || _playerShooting.aiming) crosshair.enabled = false;
+        else crosshair.enabled = true;
     }
 }

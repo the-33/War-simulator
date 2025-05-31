@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
+        healing = false;
     }
 
     // Update is called once per frame
