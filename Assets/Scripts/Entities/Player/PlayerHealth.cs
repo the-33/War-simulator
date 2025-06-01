@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public bool healing = false;
     public float timeToHeal = 5f;
 
+    public int remainingHeals = 5;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +26,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        if (_input.heal && !healing && m_health < m_maxHealth)
+        if (_input.heal && !healing && m_health < m_maxHealth && remainingHeals < 0)
         {
             _loadingCircle.CheckConditionForTime(() => _input.heal, timeToHeal, Heal, () => healing = false);
             healing = true;
@@ -45,6 +47,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         m_health = m_maxHealth;
         healing = false;
+        remainingHeals -= 1;
     }
 
     private void UpdateUI()
