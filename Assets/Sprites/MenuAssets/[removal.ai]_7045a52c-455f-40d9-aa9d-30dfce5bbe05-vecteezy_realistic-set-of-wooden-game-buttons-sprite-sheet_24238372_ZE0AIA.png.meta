@@ -1,0 +1,589 @@
+fileFormatVersion: 2
+guid: 977501487449b97419029eec8eb04460
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 963, y: 320, z: 755, w: 57}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_0'
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 322
+        width: 354
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6f3fc7ef8ad8149b37526b4b2f5aa7
+      internalID: -725584857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_1'
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 322
+        width: 105
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45258a1d3944e34498087a98552e5a71
+      internalID: 1310231855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_2'
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 319
+        width: 105
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c532ccd99c9034fa2d4ca69b43d4de
+      internalID: -1411028086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_3'
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 319
+        width: 80
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aff8a8614d910745afb341dcd0a2a4a
+      internalID: 515409490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_4'
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 318
+        width: 80
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0863699a577dfa45b14fb60c80cb3d2
+      internalID: -1457057732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_5'
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 322
+        width: 196
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 632ac4dddcc333446b3ee7faeab1be71
+      internalID: 539599683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_6'
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 322
+        width: 667
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20bc3ff139344164cbc7ee9c13c04f1d
+      internalID: 753872004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_7'
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 189
+        width: 354
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f5342bb511f84b4b916714bc87a28b0
+      internalID: -159908700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_8'
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 189
+        width: 105
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a8982cad1fad14469837f6452c971a4
+      internalID: -1569527797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_9'
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 185
+        width: 105
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 982520e01fd6d8241b90600b2260aac5
+      internalID: -723169309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_10'
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 185
+        width: 79
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b773a69c9ac47cb43aab7bcbeb97305f
+      internalID: 339743655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_11'
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 186
+        width: 78
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9681d478b6f489b429b91227701f92ec
+      internalID: 1102052771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_12'
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 189
+        width: 196
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31988071ce16e34ba79c7248351e4a2
+      internalID: -823478257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_13'
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 189
+        width: 667
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb80a33433cc524997663f2846cc81d
+      internalID: -961957150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_14'
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 56
+        width: 354
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a455cc4b0ab574c854f6da407dfe06
+      internalID: 1793632325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_15'
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 56
+        width: 105
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b93b29b6cfb054438f535c0c8644694
+      internalID: 2123918968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_16'
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 52
+        width: 105
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3975fe20a21654ea46c4bf869a26ab
+      internalID: -1922794146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_17'
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 52
+        width: 79
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0c97db1de211f40a7932a1eaf8d5dc
+      internalID: 2092166840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_18'
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 52
+        width: 79
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fe9bebc7b728df4080948a7d3299a1d
+      internalID: 361932986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_19'
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 56
+        width: 198
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a3520d8122bd3b439fe280fb24721dd
+      internalID: -1165372064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_20'
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 56
+        width: 667
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e267f0004c88d11438804c7285cec0d4
+      internalID: -314295283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_0': -725584857
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_1': 1310231855
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_10': 339743655
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_11': 1102052771
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_12': -823478257
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_13': -961957150
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_14': 1793632325
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_15': 2123918968
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_16': -1922794146
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_17': 2092166840
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_18': 361932986
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_19': -1165372064
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_2': -1411028086
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_20': -314295283
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_3': 515409490
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_4': -1457057732
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_5': 539599683
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_6': 753872004
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_7': -159908700
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_8': -1569527797
+      '[removal.ai]_7045a52c-455f-40d9-aa9d-30dfce5bbe05-vecteezy_realistic-set-of-wooden-game-buttons-sprite-sheet_24238372_ZE0AIA_9': -723169309
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
