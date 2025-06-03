@@ -16,7 +16,7 @@ public class UIMag : MonoBehaviour
         selectedImage.enabled = selected;
         transform.localScale = Vector3.one * (selected ? selectedSize : normalSize);
 
-        if(amount == 0)
+        if(amount == 0f)
         {
             _image.color = new Color32(255, 0, 0, 197);
             fillImage.color = new Color32(255, 0, 0, 148);

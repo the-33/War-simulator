@@ -16239,6 +16239,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 478dba39042c1534787affe86e2430f5, type: 3}
+--- !u!114 &1991492683 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1809855476124818365, guid: 7f4b718037fd3354090a51a4176f3bfa, type: 3}
+  m_PrefabInstance: {fileID: 3162987658131125805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998a52a10153c1d4fbeece3c6af92e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1994968878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4876784131797292, guid: aa4d92eb8537c774e87a303615d4e04c, type: 3}
@@ -16472,6 +16483,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4975203759756528, guid: 14c36f60fdada0942b6efdc93f6be53f, type: 3}
   m_PrefabInstance: {fileID: 2010639109}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2037168244 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7686548266110413733, guid: 7f4b718037fd3354090a51a4176f3bfa, type: 3}
+  m_PrefabInstance: {fileID: 3162987658131125805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2047687465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121908892472686, guid: bfeb246f00304284f9a648b6e40db2a1, type: 3}
@@ -18182,6 +18204,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 36832520599211059, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: IfakUI
+      value: 
+      objectReference: {fileID: 1991492683}
+    - target: {fileID: 36832520599211059, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: vignette
+      value: 
+      objectReference: {fileID: 2037168244}
     - target: {fileID: 36832520599211059, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: _loadingCircle
       value: 

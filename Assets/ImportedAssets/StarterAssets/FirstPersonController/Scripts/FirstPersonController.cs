@@ -76,6 +76,8 @@ namespace StarterAssets
 		private float _verticalVelocity;
 		private float _terminalVelocity = 53.0f;
 
+		public bool canRun = true;
+
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
@@ -123,6 +125,8 @@ namespace StarterAssets
 			_input = GetComponent<StarterAssetsInputs>();
             _shooting = GetComponent<PlayerShooting>();
             _health = GetComponent<PlayerHealth>();
+
+			canRun = true;
 #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
 #else
@@ -220,7 +224,7 @@ namespace StarterAssets
 		private void Move()
 		{
 			// set target speed based on move speed, sprint speed and if sprint is pressed
-			float targetSpeed = (_input.sprint && !_shooting.reloading && !_shooting.aiming && !_health.healing)  ? SprintSpeed : MoveSpeed;
+			float targetSpeed = (_input.sprint && !_shooting.reloading && !_shooting.aiming && !_health.healing && canRun)  ? SprintSpeed : MoveSpeed;
 
 			// a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 

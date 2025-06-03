@@ -76,6 +76,16 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    public void deselectMag()
+    {
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / (float)maxBulletsPerMag, false);
+    }
+
+    public void reselectMag()
+    {
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / (float)maxBulletsPerMag, true);
+    }
+
     public void endReload()
     {
         int nextMagIndex = 0;
@@ -85,9 +95,9 @@ public class PlayerShooting : MonoBehaviour
             if (mags[i] > mags[nextMagIndex] && i != currentMagIndex) nextMagIndex = i;
         }
 
-        uIMags[currentMagIndex].updateMag(mags[currentMagIndex]/30f, false);
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex]/ (float)maxBulletsPerMag, false);
         currentMagIndex = nextMagIndex;
-        uIMags[currentMagIndex].updateMag(mags[currentMagIndex]/30f, true);
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex]/ (float)maxBulletsPerMag, true);
 
         reloading = false;
 
@@ -130,7 +140,7 @@ public class PlayerShooting : MonoBehaviour
         bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * shootingForce, ForceMode.VelocityChange);
 
         mags[currentMagIndex]--;
-        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / 30f, true);
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / (float)maxBulletsPerMag, true);
     }
 
     private void Update()
@@ -153,6 +163,6 @@ public class PlayerShooting : MonoBehaviour
 
         for (int i = 0; i<numberOfMags; i++) mags[i] = maxBulletsPerMag;
         currentMagIndex = 0;
-        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / 30f, true);
+        uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / (float)maxBulletsPerMag, true);
     }
 }

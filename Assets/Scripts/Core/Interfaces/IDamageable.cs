@@ -10,7 +10,7 @@ namespace Interfaces.IDamageable
         /// Applies damage to the entity.
         /// </summary>
         /// <param name="damage"></param>
-        void TakeDamage(float damage)
+        public void TakeDamage(float damage)
         {
             m_health -= damage;
             OnDamaged();
