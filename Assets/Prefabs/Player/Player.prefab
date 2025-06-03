@@ -223,7 +223,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6279309105660240695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -293,16 +293,16 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 152
+    m_Bits: 24
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.4
+  m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1 &3459949755303770996
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +353,9 @@ GameObject:
   - component: {fileID: 2072308468931921597}
   - component: {fileID: 3123824135393451259}
   - component: {fileID: 36832520599211059}
+  - component: {fileID: 4991375553317309613}
+  - component: {fileID: 3092027966790637757}
+  - component: {fileID: 6227136581878033598}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -395,10 +398,10 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
+  m_Height: 1.8
+  m_Radius: 0.4
   m_SlopeLimit: 45
-  m_StepOffset: 0.25
+  m_StepOffset: 0.5
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
@@ -415,11 +418,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 6
-  SprintSpeed: 12
+  SprintSpeed: 13.5
   RotationSpeed: 1
   SpeedChangeRate: 10
-  JumpHeight: 0.8
-  Gravity: -15
+  JumpHeight: 1
+  Gravity: -25
   JumpTimeout: 0.1
   FallTimeout: 0.15
   Grounded: 1
@@ -434,6 +437,7 @@ MonoBehaviour:
   PeekSideOffset: 0.5
   PeekTiltAngle: 15
   PeekLerpSpeed: 10
+  canRun: 1
 --- !u!114 &1421311344553009930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +483,7 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1
+  playerLocked: 0
 --- !u!114 &2189542835533932974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,10 +669,85 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _loadingCircle: {fileID: 0}
   IfakUI: {fileID: 0}
+  vignette: {fileID: 0}
   healing: 0
   timeToHeal: 5
   remainingHeals: 0
   maxHeals: 5
+  dead: 0
+--- !u!114 &4991375553317309613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708868948771492924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df56cbdb1358ccf4d8698ec47b1ea123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactableLayer: Interactable
+  targetTag: BombPlacement
+  markerPrefab: {fileID: 1925859587359904, guid: 64306f82f0a84c24e9c2ee8da79dd6e0, type: 3}
+  rayOrigin: {fileID: 37230940158336376}
+  rayDistance: 3
+  collisionPoint: {x: 0, y: 0, z: 0}
+  hitNormal: {x: 0, y: 0, z: 0}
+--- !u!114 &3092027966790637757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708868948771492924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef202d3cdfeee2d43a97657e8c81941c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capsule: {fileID: 6512672154420023403}
+  playerCameraRoot: {fileID: 37230940158336376}
+  hand: {fileID: 1204149407568059497}
+  dieDuration: 0.5
+  deathFadeImage: {fileID: 0}
+  relativeCapsuleRot: {x: 0, y: 0, z: 0.52424604, w: 0.85156685}
+  relativeCamRot: {x: 0, y: 0, z: 0.47869185, w: 0.877983}
+  relativeHandRot: {x: -0.163079, y: -0.051290464, z: 0.29560852, w: 0.9398885}
+  capsuleOffset: {x: -0.96, y: 0.03, z: 0}
+  camOffset: {x: -1.34, y: 0.05, z: 0}
+  handOffset: {x: -0.23, y: -0.22, z: 0.4429932}
+--- !u!114 &6227136581878033598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708868948771492924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000cb67727e77464296051b5c23dce85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasPendrive: 0
+  hasComputer: 0
+  hasBomb: 0
+  hasWaited: 0
+  bombsAmount: 0
+  _loading: {fileID: 0}
+  computerPlayer: {fileID: 0}
+  computerScreen: {fileID: 0}
+  PendriveTag: PenDrive
+  ComputerTag: Computer
+  BombTag: Bomb
+  BombPlacementTag: BombPlacement
+  TentTag: 
+  timeToUseComputer: 10
+  timeToPlaceBomb: 3
+  c4Prefab: {fileID: 1925859587359904, guid: fb31ad38779f9324eb6d46f8f359e40a, type: 3}
+  bombsPlaced: []
+  sceneNightName: 
+  sceneLoader: {fileID: 0}
 --- !u!1001 &3222558297760095644
 PrefabInstance:
   m_ObjectHideFlags: 0

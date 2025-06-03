@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private PlayerShooting _shooting;
     private FirstPersonController _firstPersonController;
     private StarterAssetsInputs _input;
+    private PlayerDie _die;
 
     public float m_maxHealth { get; set; } = 4;
     public float m_health { get; set; }
@@ -23,20 +24,23 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public int remainingHeals;
     public int maxHeals = 1;
 
+    public bool dead = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
         _shooting = GetComponent<PlayerShooting>();
-        _firstPersonController = GetComponent<FirstPersonController>(); 
+        _firstPersonController = GetComponent<FirstPersonController>();
+        _die = GetComponent<PlayerDie>();
 
         healing = false;
         remainingHeals = maxHeals;
         m_health = m_maxHealth;
         UpdateIfakUI(false);
-        UpdateUI();
         vignetteColor = vignette.color;
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -60,11 +64,22 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void OnDeath()
     {
-        
+        dead = true;
+        gameObject.GetComponent<CharacterController>().enabled = false;
+        _firstPersonController.enabled = false;
+        _input.lockPlayer(true);
+        _die.Die(OnEndDying);
+    }
+
+    private void OnEndDying()
+    {
+
     }
 
     public void TakeDamage(float damage)
     {
+        if (dead) return;
+
         m_health -= damage;
         OnDamaged();
 

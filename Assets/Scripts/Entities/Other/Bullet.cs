@@ -61,7 +61,15 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         int decalIndex = decalTags.FindIndex(x => x == collision.gameObject.tag);
-        Instantiate((decalIndex == -1) ? defaultDecal : decals[decalIndex], transform.position, (decalTags[decalIndex] == "Water") ? Quaternion.LookRotation(Vector3.down) : Quaternion.LookRotation(transform.forward));
+
+        GameObject decal = Instantiate(
+            (decalIndex == -1) ? defaultDecal : decals[decalIndex],
+            transform.position,
+            (decalIndex != -1 && decalTags[decalIndex] == "Water") ? Quaternion.LookRotation(Vector3.down) : Quaternion.LookRotation(transform.forward)
+        );
+
+        // Hacer hija la decal del objeto con el que colisionamos
+        decal.transform.SetParent(collision.transform);
 
         print(collision.gameObject.name);
 
@@ -69,6 +77,9 @@ public class Bullet : MonoBehaviour
         {
             ResetBullet();
         }
-        else Destroy(gameObject);
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -33,20 +33,51 @@ namespace StarterAssets
 
 		private PlayerHealth _health;
 
+		public bool playerLocked = false;
+		private bool lockCamera = false;
+
         private void Start()
         {
             _health = GetComponent<PlayerHealth>();
         }
 
+		public void lockPlayer(bool lockCamera)
+		{
+			playerLocked = true;
+
+			move = Vector2.zero;
+
+			this.lockCamera = lockCamera;
+
+			if (lockCamera) look = Vector2.zero;
+
+			jump = false;
+			sprint = false;
+			fire = false;
+			aim = false;
+			reload = false;
+			peekLeft = false;
+			peekRight = false;
+			nightVision = false;
+			heal = false;
+        }
+
+		public void unlockPlayer()
+		{
+			playerLocked = false;
+			lockCamera = false;
+		}
+
 #if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
 		{
+			if (playerLocked) return;
 			MoveInput(value.Get<Vector2>());
 		}
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
+			if(cursorInputForLook && !lockCamera)
 			{
 				LookInput(value.Get<Vector2>());
 			}
@@ -54,57 +85,67 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
-			JumpInput(value.isPressed);
+            if (playerLocked) return;
+            JumpInput(value.isPressed);
 		}
 
 		public void OnSprint(InputValue value)
 		{
-			SprintInput(value.isPressed);
+            if (playerLocked) return;
+            SprintInput(value.isPressed);
 		}
 
 		public void OnCrouch(InputValue value)
 		{
-			CrouchInput(value.isPressed);
+            if (playerLocked) return;
+            CrouchInput(value.isPressed);
 		}
 
 		public void OnFire(InputValue value)
 		{
-			FireInput(value.isPressed);
+            if (playerLocked) return;
+            FireInput(value.isPressed);
 		}
 
         public void OnAim(InputValue value)
         {
-			AimInput(value.isPressed);
+            if (playerLocked) return;
+            AimInput(value.isPressed);
         }
 
 		public void OnReload(InputValue value)
 		{
-			ReloadInput(value.isPressed);
+            if (playerLocked) return;
+            ReloadInput(value.isPressed);
 		}
 
 		public void OnPeekRight(InputValue value)
 		{
-			PeekRightInput(value.isPressed);
+            if (playerLocked) return;
+            PeekRightInput(value.isPressed);
 		}
 
 		public void OnPeekLeft(InputValue value)
 		{
-			PeekLeftInput(value.isPressed);
+            if (playerLocked) return;
+            PeekLeftInput(value.isPressed);
 		}
 
 		public void OnNightVision(InputValue value)
 		{
-			NightVisionInput(value.isPressed);
+            if (playerLocked) return;
+            NightVisionInput(value.isPressed);
 		}
 
 		public void OnInteract(InputValue value)
 		{
-			InteractInput(value.isPressed);
+            InteractInput(value.isPressed);
 		}
 
 		public void OnHeal(InputValue value)
 		{
-			HealInput(value.isPressed);
+            if (playerLocked) return;
+            HealInput(value.isPressed);
 		}
 #endif
 

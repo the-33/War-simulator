@@ -15,6 +15,12 @@ TagManager:
   - Sandbag
   - Sand
   - Wood
+  - Minefield
+  - PenDrive
+  - Computer
+  - Bomb
+  - BombPlacement
+  - Tent
   layers:
   - Default
   - TransparentFX
@@ -26,7 +32,7 @@ TagManager:
   - Enemy
   - PlayerBullet
   - EnemyBullet
-  - 
+  - Interactable
   - 
   - 
   - 
