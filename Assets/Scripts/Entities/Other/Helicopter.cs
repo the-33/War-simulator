@@ -32,7 +32,10 @@ public class Helicopter : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         targetPropellerSpeed = propellersSpeed;
-        toggleHelicopterDust();
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(helicopterDust);
+        helicopterDust.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     void Update()

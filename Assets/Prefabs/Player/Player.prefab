@@ -784,7 +784,6 @@ MonoBehaviour:
   shootingPoint: {fileID: 4612741492220014195}
   shootingForce: 500
   maxBulletsInScene: 20
-  volume: {fileID: 0}
   normalProfile: {fileID: 11400000, guid: 3dfe4f2bc61d95647b2259e86a604c53, type: 2}
   nightVisionProfile: {fileID: 11400000, guid: db4e5945af5d7ac4ca19f3491d571798, type: 2}
 --- !u!114 &36832520599211059

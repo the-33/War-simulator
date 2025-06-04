@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
 {
     private StarterAssetsInputs _input;
     private PlayerHealth _health;
+    private PlayerInventory _inventory;
 
     public bool shooting;
     public bool reloading;
@@ -29,9 +30,10 @@ public class PlayerShooting : MonoBehaviour
 
     private bool previousNightVision = false;
 
-    public Volume volume;
     public VolumeProfile normalProfile;
     public VolumeProfile nightVisionProfile;
+
+    private Volume globalVolume = null;
 
     private void handleInputs()
     {
@@ -62,7 +64,8 @@ public class PlayerShooting : MonoBehaviour
         {
             if (previousNightVision)
             {
-                volume.profile = normalProfile;
+                if (globalVolume == null) globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+                globalVolume.profile = normalProfile;
                 previousNightVision = false;
             }
         }
@@ -70,7 +73,9 @@ public class PlayerShooting : MonoBehaviour
         {
             if (!previousNightVision)
             {
-                volume.profile = nightVisionProfile;
+                if (globalVolume == null) globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+                normalProfile = globalVolume.profile;
+                globalVolume.profile = nightVisionProfile;
                 previousNightVision = true;
             }
         }

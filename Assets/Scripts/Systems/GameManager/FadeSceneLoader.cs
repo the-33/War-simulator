@@ -37,6 +37,7 @@ public class FadeSceneLoader : MonoBehaviour
 
     IEnumerator FadeInAfterSceneLoad()
     {
+        yield return null;
         yield return FadeIn();
     }
 

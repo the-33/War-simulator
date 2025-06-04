@@ -18,7 +18,9 @@ public class Missions : MonoBehaviour
     public string GrabBombText;
     public string PlaceBombText;
     public string EscapeText;
-    public string MissionCompleteText;  
+    public string MissionCompleteText;
+
+    public GameObject helicopter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -60,7 +62,9 @@ public class Missions : MonoBehaviour
     public void EscapeMission()
     {
         radio.TransmitirMensaje(EscapeText, EscapeAudio);
-        GameObject.Find("Helicopter").SetActive(true);
+        helicopter.SetActive(true);
+        helicopter.GetComponent<Helicopter>().toggleHelicopterDust();
+
     }
 
     public void MissionComplete()
