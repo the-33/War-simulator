@@ -78,7 +78,8 @@ public class PlayerInteract : MonoBehaviour
                     {
                         if (!(currentInteractable.CompareTag(_inventory.ComputerTag) && _inventory.hasComputer) && 
                             !(currentInteractable.CompareTag(_inventory.ComputerTag) && !_inventory.hasPendrive) && 
-                            !(currentInteractable.CompareTag(_inventory.TentTag) && _inventory.hasWaited))
+                            !(currentInteractable.CompareTag(_inventory.TentTag) && (_inventory.hasWaited || !_inventory.hasComputer)) &&
+                            !(currentInteractable.CompareTag(_inventory.BombTag) && !_inventory.hasWaited))
                         {
                             outline.enabled = true;
                         }

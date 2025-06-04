@@ -108,7 +108,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (_interact.GetCurrentInteractable().CompareTag(BombTag))
         {
-            if (_input.interact)
+            if (_input.interact && hasWaited)
             {
                 hasBomb = true;
                 bombsAmount = 6;
@@ -117,7 +117,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (_interact.GetCurrentInteractable().CompareTag(TentTag))
         {
-            if (_input.interact)
+            if (_input.interact && hasComputer)
             {
                 hasWaited = true;
                 _interact.GetCurrentInteractable().GetComponent<Outlinable>().enabled = false;
