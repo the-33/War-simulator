@@ -85,6 +85,8 @@ namespace StarterAssets
 		private PlayerShooting _shooting;
 		private PlayerHealth _health;
 
+		public bool playerLocked;
+
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -140,6 +142,7 @@ namespace StarterAssets
 
 		private void Update()
 		{
+			if (playerLocked) return;
 			JumpAndGravity();
 			GroundedCheck();
 			Move();

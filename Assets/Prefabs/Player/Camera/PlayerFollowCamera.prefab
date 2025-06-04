@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7434692111294066314}
   - component: {fileID: 4401443448310060451}
   - component: {fileID: 2194852965202158302}
+  - component: {fileID: 8819812703547899366}
   m_Layer: 0
   m_Name: PlayerFollowCamera
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945646317357850107}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.6640569, z: -0, w: -0.7476821}
+  m_LocalRotation: {x: 0, y: -0.6640567, z: 0, w: 0.7476822}
   m_LocalPosition: {x: 193.66759, y: 77.84, z: 370.40186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -83.22, z: 0}
 --- !u!114 &4401443448310060451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,3 +103,15 @@ MonoBehaviour:
     CameraRadius: 0.15
     DampingIntoCollision: 0
     DampingFromCollision: 0
+--- !u!114 &8819812703547899366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945646317357850107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0c84ae7bc1ab243a6fed2ac203f666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

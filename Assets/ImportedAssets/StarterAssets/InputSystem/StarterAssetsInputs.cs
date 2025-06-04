@@ -32,18 +32,26 @@ namespace StarterAssets
 		private bool wasAiming = false;
 
 		private PlayerHealth _health;
+		private FirstPersonController _controller;
+		private CharacterController _characterController;
 
 		public bool playerLocked = false;
 		private bool lockCamera = false;
 
-        private void Start()
+        private void Awake()
         {
             _health = GetComponent<PlayerHealth>();
+			_controller = GetComponent<FirstPersonController>();
+			_characterController = GetComponent<CharacterController>();
         }
 
 		public void lockPlayer(bool lockCamera)
 		{
 			playerLocked = true;
+			_controller.playerLocked = !lockCamera;
+			if (lockCamera) _controller.enabled = false;
+
+			_characterController.enabled = false;
 
 			move = Vector2.zero;
 
@@ -64,6 +72,10 @@ namespace StarterAssets
 
 		public void unlockPlayer()
 		{
+            _characterController.enabled = true;
+            _controller.enabled = true;
+			_controller.playerLocked = false;
+
 			playerLocked = false;
 			lockCamera = false;
 		}

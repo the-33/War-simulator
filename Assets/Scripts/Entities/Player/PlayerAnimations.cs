@@ -9,6 +9,7 @@ public class PlayerAnimations : MonoBehaviour
     private PlayerShooting _playerShooting;
     private PlayerHealth _health;
     private FirstPersonController _firstPersonController;
+    private PlayerInventory _inventory;
     private Animator _animator;
 
     public Transform ShellEjectionPoint;
@@ -50,6 +51,7 @@ public class PlayerAnimations : MonoBehaviour
         _health = GetComponent<PlayerHealth>();
         _animator = GetComponent<Animator>();
         _firstPersonController = GetComponent<FirstPersonController>();
+        _inventory = GetComponent<PlayerInventory>();
 
         crosshair.enabled = true;
         currentFov = normalFov;
@@ -108,7 +110,7 @@ public class PlayerAnimations : MonoBehaviour
             _animator.SetBool("Running", false);
         }
 
-        if (_health.healing)
+        if (_health.healing || _inventory.doingStuff)
         {
             _animator.SetBool("DoingAction", true);
         }
@@ -117,7 +119,7 @@ public class PlayerAnimations : MonoBehaviour
             _animator.SetBool("DoingAction", false);
         }
 
-        if (_health.healing || _playerShooting.aiming) crosshair.enabled = false;
+        if (_health.healing || _playerShooting.aiming || _inventory.doingStuff) crosshair.enabled = false;
         else crosshair.enabled = true;
     }
 }

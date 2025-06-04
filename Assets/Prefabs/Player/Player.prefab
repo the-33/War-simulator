@@ -193,6 +193,135 @@ Transform:
   - {fileID: 1204149407568059497}
   m_Father: {fileID: 6279309105660240695}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2257202042026288315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1084162227406084293}
+  - component: {fileID: 4409050105294936596}
+  m_Layer: 3
+  m_Name: Radio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1084162227406084293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257202042026288315}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6279309105660240695}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4409050105294936596
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257202042026288315}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3282985794855249229
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +485,7 @@ GameObject:
   - component: {fileID: 4991375553317309613}
   - component: {fileID: 3092027966790637757}
   - component: {fileID: 6227136581878033598}
+  - component: {fileID: 1047817725088507528}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -378,6 +508,7 @@ Transform:
   m_Children:
   - {fileID: 37230940158336376}
   - {fileID: 6512672154420023403}
+  - {fileID: 1084162227406084293}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8408260257866624825
@@ -400,8 +531,8 @@ CharacterController:
   serializedVersion: 3
   m_Height: 1.8
   m_Radius: 0.4
-  m_SlopeLimit: 45
-  m_StepOffset: 0.5
+  m_SlopeLimit: 50
+  m_StepOffset: 1
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
@@ -438,6 +569,7 @@ MonoBehaviour:
   PeekTiltAngle: 15
   PeekLerpSpeed: 10
   canRun: 1
+  playerLocked: 0
 --- !u!114 &1421311344553009930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,13 +873,31 @@ MonoBehaviour:
   ComputerTag: Computer
   BombTag: Bomb
   BombPlacementTag: BombPlacement
-  TentTag: 
+  TentTag: Tent
+  HelicopterTag: Helicopter
   timeToUseComputer: 10
   timeToPlaceBomb: 3
+  timeToBoardHelicopter: 2
   c4Prefab: {fileID: 1925859587359904, guid: fb31ad38779f9324eb6d46f8f359e40a, type: 3}
+  bombPlacement: {fileID: 0}
   bombsPlaced: []
-  sceneNightName: 
+  sceneNightName: LevelSceneNight
   sceneLoader: {fileID: 0}
+  missions: {fileID: 0}
+  tower: {fileID: 0}
+  doingStuff: 0
+--- !u!114 &1047817725088507528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708868948771492924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0c84ae7bc1ab243a6fed2ac203f666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3222558297760095644
 PrefabInstance:
   m_ObjectHideFlags: 0

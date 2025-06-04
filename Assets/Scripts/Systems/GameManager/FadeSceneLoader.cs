@@ -1,28 +1,50 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 using System.Collections;
 
 public class FadeSceneLoader : MonoBehaviour
 {
-    public Image fadeImage; // Arrastra la imagen negra del UI aquí
+    public Image fadeImage;
     public float fadeDuration = 1f;
+
+    private Action onSceneLoadedCallback;
 
     void Start()
     {
-        // Empieza con fade in desde negro
         StartCoroutine(FadeIn());
+        SceneManager.sceneLoaded += OnSceneLoaded; // Se registra para ejecutar el callback después del cambio de escena
     }
 
-    public void LoadScene(string sceneName)
+    void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void LoadScene(string sceneName, Action onSceneLoaded = null)
+    {
+        onSceneLoadedCallback = onSceneLoaded;
         StartCoroutine(FadeOutAndLoad(sceneName));
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StartCoroutine(FadeInAfterSceneLoad());
+        onSceneLoadedCallback?.Invoke();
+        onSceneLoadedCallback = null;
+    }
+
+    IEnumerator FadeInAfterSceneLoad()
+    {
+        yield return FadeIn();
     }
 
     IEnumerator FadeIn()
     {
         float t = fadeDuration;
         Color c = fadeImage.color;
+        fadeImage.gameObject.SetActive(true);
         while (t > 0)
         {
             t -= Time.deltaTime;

@@ -1,6 +1,7 @@
 using Interfaces.IDamageable;
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
@@ -65,15 +66,13 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void OnDeath()
     {
         dead = true;
-        gameObject.GetComponent<CharacterController>().enabled = false;
-        _firstPersonController.enabled = false;
         _input.lockPlayer(true);
         _die.Die(OnEndDying);
     }
 
     private void OnEndDying()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public void TakeDamage(float damage)
