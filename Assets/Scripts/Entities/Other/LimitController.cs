@@ -1,3 +1,4 @@
+using Interfaces.IDamageable;
 using System.Collections;
 using UnityEngine;
 
@@ -57,6 +58,6 @@ public class LimitController : MonoBehaviour
         var explosion = Instantiate(explosionPrefab, player.transform);
         explosion.transform.position = player.transform.position + player.transform.forward*2f;
         yield return new WaitForSeconds(0.2f);
-        player.GetComponent<PlayerHealth>().TakeDamage(100);
+        player.GetComponent<IDamageable>().TakeDamage(100);
     }
 }

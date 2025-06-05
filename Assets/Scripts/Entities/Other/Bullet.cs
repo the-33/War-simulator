@@ -1,3 +1,4 @@
+using Interfaces.IDamageable;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
@@ -60,6 +61,11 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.TryGetComponent(out IDamageable context))
+        {
+            context.TakeDamage(1);
+        }
+
         int decalIndex = decalTags.FindIndex(x => x == collision.gameObject.tag);
 
         GameObject decal = Instantiate(

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Interfaces.IDamageable;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -68,6 +69,7 @@ namespace StarterAssets
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+        private IDamageable _playerDamageable;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
@@ -104,6 +106,7 @@ namespace StarterAssets
             _input = GetComponent<StarterAssetsInputs>();
             _shooting = GetComponent<PlayerShooting>();
             _health = GetComponent<PlayerHealth>();
+            _playerDamageable = GetComponent<IDamageable>();
 
 #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
@@ -282,7 +285,7 @@ namespace StarterAssets
             if (fallDistance >= fatalFallHeight)
             {
                 Debug.Log("Daño letal por caída");
-                _health.TakeDamage(100);
+                _playerDamageable.TakeDamage(100);
             }
             else
             {
@@ -291,7 +294,7 @@ namespace StarterAssets
                 int finalDamage = Mathf.RoundToInt(damage);
 
                 Debug.Log($"Fall damage desde altura {fallDistance:F2}: {finalDamage}");
-                _health.TakeDamage(finalDamage);
+                _playerDamageable.TakeDamage(finalDamage);
             }
         }
 

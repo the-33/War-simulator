@@ -16,8 +16,11 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private StarterAssetsInputs _input;
     private PlayerDie _die;
 
-    public float m_maxHealth { get; set; } = 4;
-    public float m_health { get; set; }
+    public float m_maxHealth { get => _maxHealth; set => _maxHealth = value; }
+    public float m_health { get => _health; set => _health = value; }
+
+    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _health;
 
     public bool healing = false;
     public float timeToHeal = 5f;
@@ -40,7 +43,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         healing = false;
         remainingHeals = maxHeals;
-        m_health = m_maxHealth;
         UpdateIfakUI(false);
         vignetteColor = vignette.color;
         UpdateUI();
@@ -49,7 +51,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.M)) TakeDamage(1f); // Uncomment for testing
+        //if (Input.GetKeyDown(KeyCode.M)) IDamageable.TakeDamage(1f); // Uncomment for testing
 
         if (_input.heal && !healing && m_health < m_maxHealth && remainingHeals > 0)
         {
@@ -63,6 +65,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     public void OnDamaged()
     {
         UpdateUI();
+        if ((m_health / (float)m_maxHealth) <= 0.25f) _firstPersonController.canRun = false;
     }
 
     public void OnDeath()
@@ -75,21 +78,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private void OnEndDying()
     {
         _noDestroyList.destroyObjects(() => SceneManager.LoadScene(0));
-    }
-
-    public void TakeDamage(float damage)
-    {
-        if (dead) return;
-
-        m_health -= damage;
-        OnDamaged();
-
-        if ((m_health / (float)m_maxHealth) <= 0.25f) _firstPersonController.canRun = false;
-
-        if (m_health <= 0)
-        {
-            OnDeath();
-        }
     }
 
     public void Heal()
