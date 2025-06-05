@@ -51,9 +51,6 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
     public float m_health { get => _health; set => _health = value; }
     #endregion
 
-
-
-
     private void Awake()
     {
         // Perceptions
@@ -263,6 +260,7 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
     public void OnDeath()
     {
         TryChangeState(EnemyStateEnum.DEAD);
+        m_vision.DisableBar();
         m_animatorController.TriggerDeath();
     }
 

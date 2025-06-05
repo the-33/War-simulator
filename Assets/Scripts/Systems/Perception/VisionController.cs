@@ -43,6 +43,10 @@ public class VisionController : MonoBehaviour
     private bool hasConfirmedTarget = false;
     private bool hasLostSight = false;
 
+    public void DisableBar() => _isBarEnabled = false;
+    public void EnableBar() => _isBarEnabled = true;
+    private bool _isBarEnabled = true;
+
     private void OnEnable() => StartCoroutine(VisionCheckCoroutine());
 
     private void OnDisable() => StopAllCoroutines();
@@ -152,7 +156,7 @@ public class VisionController : MonoBehaviour
     {
         if (suspicionSlider == null) return;
 
-        suspicionSlider.gameObject.SetActive(suspicionLevel > 0f);
+        suspicionSlider.gameObject.SetActive(suspicionLevel > 0f && _isBarEnabled);
 
 
         if (suspicionLevel >= suspicionThreshold && suspicionLevel < confirmationThreshold)

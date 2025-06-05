@@ -11,12 +11,14 @@ public class EnemyAnimatorController : MonoBehaviour, IAnimator
     private Animator _animator;
     private NavMeshAgent _agent;
     private MovementContext _movementContext;
+    private CapsuleCollider _capsuleCollider;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _movementContext = GetComponent<MovementContext>();
+        _capsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     public void SetShoot(bool state)
@@ -46,7 +48,11 @@ public class EnemyAnimatorController : MonoBehaviour, IAnimator
 
     public void TriggerDeath()
     {
+        _agent.enabled = false;
+        _capsuleCollider.enabled = false;
         _animator.SetTrigger("Death");
+
+        Destroy(gameObject, 10f);
     }
 
     public void TriggerHit()

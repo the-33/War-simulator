@@ -832,14 +832,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 40
-  viewAngle: 100
+  viewAngle: 170
   targetMask:
     serializedVersion: 2
     m_Bits: 8
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1
-  actionRangeMult: 0.8
+  actionRangeMult: 0.7
   suspicionIncreaseRate: 20
   suspicionDecayRate: 10
   suspicionThreshold: 30

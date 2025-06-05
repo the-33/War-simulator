@@ -46,23 +46,25 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
 
     public void Tick()
     {
-        if (_attackTimer < m_attackTime)
-        {
-            _attackTimer += Time.deltaTime;
-            return; // Wait for the attack cooldown
-        }
-        _attackTimer = 0f; // Reset the attack timer
+        //if (_attackTimer < m_attackTime)
+        //{
+        //    _attackTimer += Time.deltaTime;
+        //    return; // Wait for the attack cooldown
+        //}
+        //_attackTimer = 0f; // Reset the attack timer
 
         //Handle the attack logic here
 
-        AimAtTarget(transform, m_weaponController.m_firePoint, _target.transform);
+
         Vector3 target = _target.transform.position + new Vector3(0, 1f, 0);
         m_weaponController.m_firePoint.transform.LookAt(target);
-    }
 
+        Vector3 direction = _target.position - transform.position;
+        direction.y = 0f; // Elimina la componente vertical
 
-    void AimAtTarget(Transform parentTransform, Transform cannonTransform, Transform target)
-    {
-        parentTransform.LookAt(target.position);
+        if (direction == Vector3.zero) return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 120f);
     }
 }
