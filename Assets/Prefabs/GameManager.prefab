@@ -69,14 +69,6 @@ MonoBehaviour:
   EscapeAudio: {fileID: 0}
   MissionCompleteAudio: {fileID: 0}
   MinefieldAudio: {fileID: 0}
-  PenDriveText: grab pen drive
-  HackComputerText: hack computer
-  WaitText: wait
-  GrabBombText: grab bomb
-  PlaceBombText: place bomb
-  EscapeText: escape
-  MissionCompleteText: mission completed
-  MinefieldText: get out of the mine field
   helicopter: {fileID: 0}
 --- !u!114 &8787592756788928960
 MonoBehaviour:

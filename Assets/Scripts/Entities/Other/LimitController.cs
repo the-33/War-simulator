@@ -31,7 +31,7 @@ public class LimitController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !isPlayer)
         {
             player = other.gameObject;
             lastRadioMessage = radio.currentMessage;
@@ -43,7 +43,7 @@ public class LimitController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && isPlayer)
         {
             radio.TransmitirMensaje(lastRadioMessage);
             isPlayer = false;
@@ -53,7 +53,7 @@ public class LimitController : MonoBehaviour
 
     private IEnumerator blowPlayer()
     {
-        Debug.Log("¡Jugador volado!");
+        Debug.Log("¡Jugador explotado!");
         var explosion = Instantiate(explosionPrefab, player.transform);
         explosion.transform.position = player.transform.position + player.transform.forward*2f;
         yield return new WaitForSeconds(0.2f);

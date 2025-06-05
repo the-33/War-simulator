@@ -2315,7 +2315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3248234926409693804}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.22748618, z: -0, w: 0.97378135}
+  m_LocalRotation: {x: 0, y: 0.22748414, z: 0, w: 0.9737818}
   m_LocalPosition: {x: 305.8, y: 72.57, z: 373.545}
   m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_ConstrainProportionsScale: 1
@@ -2591,6 +2591,7 @@ MonoBehaviour:
   uiToActivate: {fileID: 0}
   fadeDuration: 1
   missions: {fileID: 0}
+  _noDestroyList: {fileID: 0}
 --- !u!95 &7544268827252092715
 Animator:
   serializedVersion: 7
