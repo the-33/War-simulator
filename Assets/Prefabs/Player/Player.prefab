@@ -786,8 +786,8 @@ MonoBehaviour:
   _loadingCircle: {fileID: 0}
   IfakUI: {fileID: 0}
   vignette: {fileID: 0}
-  _maxHealth: 0
-  _health: 0
+  _maxHealth: 4
+  _health: 4
   healing: 0
   timeToHeal: 5
   remainingHeals: 0
@@ -873,6 +873,7 @@ MonoBehaviour:
   missions: {fileID: 0}
   tower: {fileID: 0}
   doingStuff: 0
+  tentWakeUpPoint: {fileID: 0}
 --- !u!114 &1047817725088507528
 MonoBehaviour:
   m_ObjectHideFlags: 0

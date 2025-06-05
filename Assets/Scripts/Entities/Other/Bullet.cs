@@ -61,21 +61,26 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.TryGetComponent(out IDamageable context))
+        IDamageable context = null;
+
+        collision.gameObject.TryGetComponent(out context);
+        if (context == null && collision.transform.parent != null) collision.transform.parent.TryGetComponent(out context);
+
+        if (context != null) context.TakeDamage(1);
+
+        if (collision.gameObject.name != "Player")
         {
-            context.TakeDamage(1);
+            int decalIndex = decalTags.FindIndex(x => x == collision.gameObject.tag);
+
+            GameObject decal = Instantiate(
+                (decalIndex == -1) ? defaultDecal : decals[decalIndex],
+                transform.position,
+                (decalIndex != -1 && decalTags[decalIndex] == "Water") ? Quaternion.LookRotation(Vector3.down) : Quaternion.LookRotation(transform.forward)
+            );
+
+            // Hacer hija la decal del objeto con el que colisionamos
+            decal.transform.SetParent(collision.transform);
         }
-
-        int decalIndex = decalTags.FindIndex(x => x == collision.gameObject.tag);
-
-        GameObject decal = Instantiate(
-            (decalIndex == -1) ? defaultDecal : decals[decalIndex],
-            transform.position,
-            (decalIndex != -1 && decalTags[decalIndex] == "Water") ? Quaternion.LookRotation(Vector3.down) : Quaternion.LookRotation(transform.forward)
-        );
-
-        // Hacer hija la decal del objeto con el que colisionamos
-        decal.transform.SetParent(collision.transform);
 
         print(collision.gameObject.name);
 

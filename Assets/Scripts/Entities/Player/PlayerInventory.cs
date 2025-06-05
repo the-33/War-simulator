@@ -51,6 +51,8 @@ public class PlayerInventory : MonoBehaviour
 
     public bool doingStuff;
 
+    public Transform tentWakeUpPoint;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -156,7 +158,8 @@ public class PlayerInventory : MonoBehaviour
             {
                 hasWaited = true;
                 _interact.GetCurrentInteractable().GetComponent<Outlinable>().enabled = false;
-                sceneLoader.LoadScene(sceneNightName, missions.GrabBombMission);
+                _input.lockPlayer(true);
+                sceneLoader.LoadScene(sceneNightName, () => { missions.GrabBombMission(); gameObject.transform.position = tentWakeUpPoint.position; gameObject.transform.rotation = tentWakeUpPoint.rotation; _input.unlockPlayer(); });
             }
         }
         else if (_interact.GetCurrentInteractable().CompareTag(HelicopterTag))
