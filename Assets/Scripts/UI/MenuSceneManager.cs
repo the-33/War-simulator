@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.SceneManagement;
 
 public class MenuSceneManager : MonoBehaviour
@@ -6,7 +7,7 @@ public class MenuSceneManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Update is called once per frame
@@ -18,6 +19,7 @@ public class MenuSceneManager : MonoBehaviour
     public void Play()
     {
         Debug.Log("Playing");
+        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("LevelScene");
     }
 

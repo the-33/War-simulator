@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 6512672154420023403}
   - component: {fileID: 5694774685407222151}
   - component: {fileID: 2334430880534365995}
-  - component: {fileID: 736597806147044012}
   m_Layer: 3
   m_Name: Capsule
   m_TagString: Flesh
@@ -409,29 +408,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &736597806147044012
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3282985794855249229}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 24
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1 &3459949755303770996
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,7 +451,6 @@ GameObject:
   - component: {fileID: 6279309105660240695}
   - component: {fileID: 8408260257866624825}
   - component: {fileID: 3083088012542542531}
-  - component: {fileID: 1421311344553009930}
   - component: {fileID: 5753394919303406096}
   - component: {fileID: 2189542835533932974}
   - component: {fileID: 4181395123942503556}
@@ -486,6 +461,7 @@ GameObject:
   - component: {fileID: 3092027966790637757}
   - component: {fileID: 6227136581878033598}
   - component: {fileID: 1047817725088507528}
+  - component: {fileID: 7656239864083084657}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -524,7 +500,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 24
+    m_Bits: 344
   m_LayerOverridePriority: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
@@ -570,23 +546,6 @@ MonoBehaviour:
   PeekLerpSpeed: 10
   canRun: 1
   playerLocked: 0
---- !u!114 &1421311344553009930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7708868948771492924}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 909d917d73a63f940ac158d02e936645, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  canPush: 0
-  strength: 1.1
 --- !u!114 &5753394919303406096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,6 +765,7 @@ MonoBehaviour:
   remainingHeals: 0
   maxHeals: 5
   dead: 0
+  _noDestroyList: {fileID: 0}
 --- !u!114 &4991375553317309613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,6 +857,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0c84ae7bc1ab243a6fed2ac203f666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7656239864083084657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708868948771492924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 774f08f5e5fa62a468b6375808dbd816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioListener: {fileID: 0}
 --- !u!1001 &3222558297760095644
 PrefabInstance:
   m_ObjectHideFlags: 0

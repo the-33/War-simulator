@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Missions : MonoBehaviour
@@ -11,14 +12,44 @@ public class Missions : MonoBehaviour
     public AudioClip PlaceBombAudio = null;
     public AudioClip EscapeAudio = null;
     public AudioClip MissionCompleteAudio = null;
+    public AudioClip MinefieldAudio = null;
 
-    public string PenDriveText;
-    public string HackComputerText;
-    public string WaitText;
-    public string GrabBombText;
-    public string PlaceBombText;
-    public string EscapeText;
-    public string MissionCompleteText;
+    private string PenDriveText = 
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Grab Pen Drive containing important information (\udb84\ude9e)\n" +
+        "It is located in the coaster base of the enemy\n" +
+        "Stealth is very important";
+    private string HackComputerText =
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Take pen drive to the computer in the village base (\ueea7)\n" +
+        "It is located inside the hangar by the hospital\n" +
+        "Try not to get spotted";
+    private string WaitText =
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Wait until night inside the tent behind the Hangar(\udb81\udd08)\n" +
+        "Exit the hangar through the back door\n" +
+        "Theres too many enemies wandering arround";
+    private string GrabBombText = 
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Find the C4 stashed in the enemy's village \nbase and take it with you(\uf1e2)\n" +
+        "Possible location: East of the village\n";
+    private string PlaceBombText =
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Put the 6 C4s in the columns of the tower(\uf1e2)\n" +
+        "Reach the second floor of the tower and place the bombs\n" +
+        "Put at least one C4 in each column";
+    private string EscapeText = 
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Get back to the beach\n" +
+        "Get to the beach, an extraction vehicle is waiting (\uedfd)\n" +
+        "The bombs are exploding soon";
+    private string MissionCompleteText =
+        "<size=36><b>Mission complete</b></size>\n<size=12> </size>\n" +
+        "Good job, you're heading home now\n";
+    public string MinefieldText { get; private set; } =
+        "<size=36><b>WARNING \uf071</b></size>\n<size=12> </size>\n" +
+        "You are in a minefield, go back where you came from inmediately(\udb83\uddda)\n" +
+        "The mission is at risk\n";
 
     public GameObject helicopter;
 

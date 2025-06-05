@@ -37,6 +37,7 @@ namespace StarterAssets
 
 		public bool playerLocked = false;
 		private bool lockCamera = false;
+		private bool lockNightVision = false;
 
         private void Awake()
         {
@@ -45,11 +46,13 @@ namespace StarterAssets
 			_characterController = GetComponent<CharacterController>();
         }
 
-		public void lockPlayer(bool lockCamera)
+		public void lockPlayer(bool lockCamera, bool lockNV = true)
 		{
 			playerLocked = true;
 			_controller.playerLocked = !lockCamera;
 			if (lockCamera) _controller.enabled = false;
+
+			lockNightVision = lockNV;
 
 			_characterController.enabled = false;
 
@@ -66,7 +69,6 @@ namespace StarterAssets
 			reload = false;
 			peekLeft = false;
 			peekRight = false;
-			nightVision = false;
 			heal = false;
         }
 
@@ -78,6 +80,7 @@ namespace StarterAssets
 
 			playerLocked = false;
 			lockCamera = false;
+			lockNightVision = false;
 		}
 
 #if ENABLE_INPUT_SYSTEM
@@ -145,7 +148,7 @@ namespace StarterAssets
 
 		public void OnNightVision(InputValue value)
 		{
-            if (playerLocked) return;
+            if (lockNightVision) return;
             NightVisionInput(value.isPressed);
 		}
 

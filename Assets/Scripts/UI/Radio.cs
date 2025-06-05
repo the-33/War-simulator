@@ -12,6 +12,8 @@ public class Radio : MonoBehaviour
     private Coroutine escrituraActual;
     private bool mostrarCursor = true;
 
+    public string currentMessage;
+
     void Start()
     {
         StartCoroutine(ParpadearCursor());
@@ -28,6 +30,7 @@ public class Radio : MonoBehaviour
             StopCoroutine(escrituraActual);
         }
 
+        currentMessage = texto;
         escrituraActual = StartCoroutine(ProcesarTransmision(texto, audioOpcional));
     }
 
@@ -48,15 +51,34 @@ public class Radio : MonoBehaviour
     private IEnumerator AnimarTextoConCursor(string texto)
     {
         consolaTexto.text = "";
+        string resultado = "";
+        int i = 0;
 
-        for (int i = 0; i <= texto.Length; i++)
+        while (i < texto.Length)
         {
-            consolaTexto.text = texto.Substring(0, i) + (mostrarCursor ? "<size=70%>▌</size>" : "");
+            if (texto[i] == '<') // Detecta inicio de etiqueta
+            {
+                int cierre = texto.IndexOf('>', i);
+                if (cierre != -1)
+                {
+                    // Añade toda la etiqueta sin animación
+                    resultado += texto.Substring(i, cierre - i + 1);
+                    i = cierre + 1;
+                    consolaTexto.text = resultado + (mostrarCursor ? "<size=70%>▌</size>" : "");
+                    continue;
+                }
+            }
+
+            // Añade carácter normal
+            resultado += texto[i];
+            consolaTexto.text = resultado + (mostrarCursor ? "<size=70%>▌</size>" : "");
+            i++;
             yield return new WaitForSeconds(velocidadEscritura);
         }
 
-        consolaTexto.text = texto;
+        consolaTexto.text = resultado;
     }
+
 
     private IEnumerator ParpadearCursor()
     {

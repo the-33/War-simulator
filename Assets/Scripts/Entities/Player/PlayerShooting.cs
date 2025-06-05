@@ -3,6 +3,7 @@ using StarterAssets;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -64,7 +65,6 @@ public class PlayerShooting : MonoBehaviour
         {
             if (previousNightVision)
             {
-                if (globalVolume == null) globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
                 globalVolume.profile = normalProfile;
                 previousNightVision = false;
             }
@@ -73,12 +73,16 @@ public class PlayerShooting : MonoBehaviour
         {
             if (!previousNightVision)
             {
-                if (globalVolume == null) globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
-                normalProfile = globalVolume.profile;
                 globalVolume.profile = nightVisionProfile;
                 previousNightVision = true;
             }
         }
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
+        normalProfile = globalVolume.profile;
     }
 
     public void deselectMag()
@@ -155,6 +159,8 @@ public class PlayerShooting : MonoBehaviour
 
     private void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         _input = GetComponent<StarterAssetsInputs>();
         _health = GetComponent<PlayerHealth>();
 
@@ -169,5 +175,10 @@ public class PlayerShooting : MonoBehaviour
         for (int i = 0; i<numberOfMags; i++) mags[i] = maxBulletsPerMag;
         currentMagIndex = 0;
         uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / (float)maxBulletsPerMag, true);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

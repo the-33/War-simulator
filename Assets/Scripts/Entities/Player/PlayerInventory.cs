@@ -152,7 +152,7 @@ public class PlayerInventory : MonoBehaviour
         }
         else if (_interact.GetCurrentInteractable().CompareTag(TentTag))
         {
-            if (_input.interact && hasComputer)
+            if (_input.interact && hasComputer && !hasWaited)
             {
                 hasWaited = true;
                 _interact.GetCurrentInteractable().GetComponent<Outlinable>().enabled = false;
