@@ -13,6 +13,8 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
 
     private Transform _target;
 
+    public WeaponController m_weaponController;
+
     private void Awake()
     {
         _movementContext = GetComponent<IMovementContext>();
@@ -28,7 +30,7 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
         if (context is Transform)
         {
             _target = (Transform)context;
-            _movementContext.ResetPath(); ;
+            _movementContext.StopMoving(); ;
         }
         _animator.SetShoot(true);
     }
@@ -36,9 +38,10 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
     public void Exit()
     {
         _attackTimer = 0f;
-        _movementContext.ResetPath();
+        _movementContext.StartMoving();
         _target = null;
         _animator.SetShoot(false);
+        m_weaponController.m_firePoint.transform.rotation = new Quaternion(0, 0, 0, 0);
     }
 
     public void Tick()
@@ -51,5 +54,15 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
         _attackTimer = 0f; // Reset the attack timer
 
         //Handle the attack logic here
+
+        AimAtTarget(transform, m_weaponController.m_firePoint, _target.transform);
+        Vector3 target = _target.transform.position + new Vector3(0, 1f, 0);
+        m_weaponController.m_firePoint.transform.LookAt(target);
+    }
+
+
+    void AimAtTarget(Transform parentTransform, Transform cannonTransform, Transform target)
+    {
+        parentTransform.LookAt(target.position);
     }
 }

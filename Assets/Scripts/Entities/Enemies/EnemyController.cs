@@ -263,11 +263,12 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
     public void OnDeath()
     {
         TryChangeState(EnemyStateEnum.DEAD);
+        m_animatorController.TriggerDeath();
     }
 
     public void OnDamaged()
     {
-
+        m_animatorController.TriggerHit();
     }
     #endregion
 
