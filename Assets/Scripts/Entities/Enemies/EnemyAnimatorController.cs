@@ -44,8 +44,13 @@ public class EnemyAnimatorController : MonoBehaviour, IAnimator
         }
     }
 
-    public void setShoot(bool state)
+    public void TriggerDeath()
     {
-        throw new System.NotImplementedException();
+        _animator.SetTrigger("Death");
+    }
+
+    public void TriggerHit()
+    {
+        _animator.SetTrigger("Hit");
     }
 }
