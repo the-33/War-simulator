@@ -10,6 +10,7 @@ public class Radio : MonoBehaviour
     public float retardoDespuesAudio = 0.2f;
 
     private Coroutine escrituraActual;
+    private Coroutine animacionTextoActual;
     private bool mostrarCursor = true;
 
     public string currentMessage;
@@ -25,10 +26,9 @@ public class Radio : MonoBehaviour
 
     public void TransmitirMensaje(string texto, AudioClip audioOpcional = null)
     {
-        if (escrituraActual != null)
-        {
-            StopCoroutine(escrituraActual);
-        }
+        if (escrituraActual != null) StopCoroutine(escrituraActual);
+
+        if (animacionTextoActual != null) StopCoroutine(animacionTextoActual);
 
         currentMessage = texto;
         escrituraActual = StartCoroutine(ProcesarTransmision(texto, audioOpcional));
@@ -45,7 +45,7 @@ public class Radio : MonoBehaviour
             yield return new WaitForSeconds(audioOpcional.length + retardoDespuesAudio);
         }
 
-        yield return StartCoroutine(AnimarTextoConCursor(texto));
+        yield return animacionTextoActual = StartCoroutine(AnimarTextoConCursor(texto));
     }
 
     private IEnumerator AnimarTextoConCursor(string texto)

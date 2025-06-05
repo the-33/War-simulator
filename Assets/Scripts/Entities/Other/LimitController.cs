@@ -1,11 +1,11 @@
-using Interfaces.IDamageable;
+using Interfaces;
 using System.Collections;
 using UnityEngine;
 
 public class LimitController : MonoBehaviour
 {
     public Radio radio;
-    private GameObject player;
+    public GameObject player;
     public GameObject explosionPrefab;
     public Missions missions;
 
@@ -34,10 +34,9 @@ public class LimitController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && !isPlayer)
         {
-            player = other.gameObject;
+            isPlayer = true;
             lastRadioMessage = radio.currentMessage;
             radio.TransmitirMensaje(missions.MinefieldText, missions.MinefieldAudio);
-            isPlayer = true;
             timer = 0f; // Reinicia el tiempo cuando entra
         }
     }
@@ -46,8 +45,8 @@ public class LimitController : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player") && isPlayer)
         {
-            radio.TransmitirMensaje(lastRadioMessage);
             isPlayer = false;
+            radio.TransmitirMensaje(lastRadioMessage);
             timer = 0f; // Reinicia el contador al salir
         }
     }
@@ -58,6 +57,6 @@ public class LimitController : MonoBehaviour
         var explosion = Instantiate(explosionPrefab, player.transform);
         explosion.transform.position = player.transform.position + player.transform.forward*2f;
         yield return new WaitForSeconds(0.2f);
-        player.GetComponent<IDamageable>().TakeDamage(100);
+        player.GetComponent<IDamageable>()?.TakeDamage(100);
     }
 }

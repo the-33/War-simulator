@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Utils.Attributes;
-using Interfaces.IDamageable;
+using Interfaces;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 

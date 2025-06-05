@@ -1,4 +1,4 @@
-using Interfaces.IDamageable;
+using Interfaces;
 using StarterAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -101,5 +101,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     {
         float fillAmount = remainingHeals / (float)maxHeals;
         IfakUI.updateIfak(fillAmount, selected);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        m_health -= damage;
+        OnDamaged();
+        if (m_health <= 0)
+        {
+            OnDeath();
+        }
     }
 }

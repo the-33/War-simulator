@@ -1,4 +1,4 @@
-using Interfaces.IDamageable;
+using Interfaces;
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;

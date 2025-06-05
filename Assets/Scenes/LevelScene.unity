@@ -8614,6 +8614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radio: {fileID: 847218750}
+  player: {fileID: 9138018706871677001}
   explosionPrefab: {fileID: 1336195145445708, guid: 680cf5ea6c1d41e4f9cce6ab07ce0200, type: 3}
   missions: {fileID: 1972889677}
   maxStayTime: 5
@@ -18612,6 +18613,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 441860, guid: a3e361aa4a4ea1947822cdbf89e7e865, type: 3}
   m_PrefabInstance: {fileID: 1656567358}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1722206513 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2986851190342623869, guid: 7f4b718037fd3354090a51a4176f3bfa, type: 3}
+  m_PrefabInstance: {fileID: 3162987658131125805}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1725637035 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d3e74f7c0011b184cbefa590559b054b, type: 3}
@@ -22881,10 +22893,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3437597845816789108, guid: 40f2d9f47d7cc2047b229d3964f5c443, type: 3}
-      propertyPath: reflectionPlane
-      value: 
-      objectReference: {fileID: 1511610424}
     - target: {fileID: 4194163445226463672, guid: 40f2d9f47d7cc2047b229d3964f5c443, type: 3}
       propertyPath: 'm_Cameras.Array.data[0]'
       value: 
@@ -22892,10 +22900,6 @@ PrefabInstance:
     - target: {fileID: 5048402737975332103, guid: 40f2d9f47d7cc2047b229d3964f5c443, type: 3}
       propertyPath: m_Name
       value: MainCamera
-      objectReference: {fileID: 0}
-    - target: {fileID: 5184559017704956985, guid: 40f2d9f47d7cc2047b229d3964f5c443, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 1207
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23804,30 +23808,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 7756034098617197913}
-    - target: {fileID: 3083088012542542531, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: playerLocked
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083088012542542531, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: minFallHeight
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3083088012542542531, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: fatalFallHeight
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 3092027966790637757, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: deathFadeImage
       value: 
-      objectReference: {fileID: 1108091697}
-    - target: {fileID: 3282985794855249229, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282985794855249229, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1722206513}
     - target: {fileID: 6227136581878033598, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: tower
       value: 
@@ -23907,44 +23891,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3282985794855249229, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9138018706871677002}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e93dc9355d200c24e8768382641bceae, type: 3}
---- !u!1 &9138018706871677000 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3282985794855249229, guid: e93dc9355d200c24e8768382641bceae, type: 3}
-  m_PrefabInstance: {fileID: 9138018706871676999}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9138018706871677001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7708868948771492924, guid: e93dc9355d200c24e8768382641bceae, type: 3}
   m_PrefabInstance: {fileID: 9138018706871676999}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &9138018706871677002
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9138018706871677000}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Height: 1.8
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
