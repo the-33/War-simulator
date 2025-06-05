@@ -2,20 +2,16 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public abstract class SquadEvent
+public class SquadEvent
 {
     public int SquadID;
+    public SquadEventType EventType;
     public ISquadMember Sender;
+    public object Data;
 }
 
-// This class serves as a base class for squad-related events.
-public class EnemyDetectedEvent : SquadEvent
+public enum SquadEventType
 {
-    public Vector3 Position;
-    public GameObject Target;
-}
-
-public class TestingEvent : SquadEvent
-{
-    public string Message;
+    EnemyDetected,
+    Testing
 }

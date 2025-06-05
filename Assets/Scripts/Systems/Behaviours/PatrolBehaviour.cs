@@ -1,26 +1,32 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class PatrolBehaviour : MonoBehaviour, IBehaviour
 {
     public WaypointController m_waypointController;
+    public bool IsFinished => false;
+
     public float m_waitTime = 2f;
+    private float _waitTimer = 0f;
 
     [SerializeField] private Vector3[] _patrolPoints;
     private int _currentPoint = 0;
-    private NavMeshAgent _agent;
-    private float _waitTimer = 0f;
 
-    public bool IsFinished => false;
+    private IAnimator _animator;
+    private IMovementContext _movementContext;
 
     private void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        _currentPoint = 0;
+        _animator = GetComponent<IAnimator>();
+        _movementContext = GetComponent<IMovementContext>();
+        if (_movementContext == null)
+            Debug.LogError("IMovementContext not found on " + gameObject.name);
     }
 
     public void Enter(object context = null)
     {
+
         if ((_patrolPoints == null || _patrolPoints.Length == 0) && m_waypointController != null)
         {
             _patrolPoints = m_waypointController.Waypoints;
@@ -31,17 +37,16 @@ public class PatrolBehaviour : MonoBehaviour, IBehaviour
             _patrolPoints = new Vector3[] { transform.position };
         }
 
-        _currentPoint = 0;
-        _agent?.SetDestination(_patrolPoints[_currentPoint]);
+        _movementContext.MoveTo(_patrolPoints[_currentPoint]);
         _waitTimer = 0f;
     }
 
     public void Tick()
     {
+        if (_patrolPoints.Length == 0 || (_patrolPoints.Length == 1 && !_movementContext.HasPath))
+            return;
 
-        if (_patrolPoints.Length == 0 || (_patrolPoints.Length == 1 && !_agent.pathPending)) return;
-
-        if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
+        if (_movementContext.IsPathComplete)
         {
             _waitTimer += Time.deltaTime;
 
@@ -60,7 +65,7 @@ public class PatrolBehaviour : MonoBehaviour, IBehaviour
 
     private void MoveToNextPoint()
     {
-        _agent.SetDestination(_patrolPoints[_currentPoint]);
+        _movementContext.MoveTo(_patrolPoints[_currentPoint]);
     }
 
     public void Exit()

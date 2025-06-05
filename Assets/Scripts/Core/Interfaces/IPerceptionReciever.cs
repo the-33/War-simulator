@@ -14,7 +14,12 @@ public interface IPerceptionReceiver
     /// Called when an entity is confirmed sighted.
     /// </summary>
     /// <param name="entity"></param>
-    void OnConfirmedSight(Vector3 entity);
+    void OnConfirmedSight(Transform entity);
+
+    /// <summary>
+    /// Called when the entity loses sight of a target.
+    /// </summary>
+    void OnLostSight();
     #endregion
 
     #region Hearing

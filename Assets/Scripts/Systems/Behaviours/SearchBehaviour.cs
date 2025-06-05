@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class SearchBehaviour : MonoBehaviour, IBehaviour
 {
-    private NavMeshAgent _agent;
+    private IMovementContext _movementContext;
     private Vector3 _searchZone;
     private float _searchTime;
     private float _searchTimer;
@@ -12,9 +11,14 @@ public class SearchBehaviour : MonoBehaviour, IBehaviour
 
     public bool IsFinished => _isFinished;
 
+    private IAnimator _animator;
+
+    public float m_speed;
+
     private void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        _movementContext = GetComponent<IMovementContext>();
+        _animator = GetComponent<IAnimator>();
     }
 
     public void Enter(object context = null)
@@ -29,23 +33,23 @@ public class SearchBehaviour : MonoBehaviour, IBehaviour
         _searchZone = data.Position;
         _searchTime = data.Duration;
 
-        _agent.SetDestination(_searchZone);
+        _movementContext.MoveTo(_searchZone);
         _searchTimer = 0f;
         _isFinished = false;
     }
 
     public void Exit()
     {
-        _agent.ResetPath();
+        _movementContext.ResetPath();
         _isFinished = false;
         _searchTimer = 0f;
     }
 
     public void Tick()
     {
-        if (_agent.pathPending || _isFinished) return;
+        if (_isFinished) return;
 
-        if (_agent.remainingDistance <= _agent.stoppingDistance)
+        if (_movementContext.IsPathComplete)
         {
             _searchTimer += Time.deltaTime;
             if (_searchTimer >= _searchTime)

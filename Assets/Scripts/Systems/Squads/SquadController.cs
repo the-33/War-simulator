@@ -27,17 +27,23 @@ public class SquadController : MonoBehaviour
 
     private void HandleSquadEvent(SquadEvent squadEvent)
     {
+        if (m_squadMember == null) return;
         if (squadEvent.SquadID != m_squadID || squadEvent.Sender == m_squadMember) return;
         m_squadMember?.OnSquadEvent(squadEvent);
     }
 
-    public void SendSquadEvent(SquadEvent squadEvent)
+    public void SendSquadEvent(SquadEventType type, Object data)
     {
         if (m_squadID != 0)
         {
-            squadEvent.SquadID = m_squadID;
-            squadEvent.Sender = m_squadMember;
-            m_squadEventChannel?.RaiseEvent(squadEvent);
+            var newEvent = new SquadEvent
+            {
+                SquadID = m_squadID,
+                EventType = type,
+                Sender = m_squadMember,
+                Data = data
+            };
+            m_squadEventChannel?.RaiseEvent(newEvent);
         }
     }
 

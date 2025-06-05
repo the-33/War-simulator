@@ -1,19 +1,25 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class ChaseBehaviour : MonoBehaviour, IBehaviour
 {
-    private bool _isFinished;
     public bool IsFinished => _isFinished;
+    private bool _isFinished;
 
-    private NavMeshAgent _agent;
+    public float m_positionUpdateTime = 0.5f;
+    private float _positionUpdateTimer = 0f;
 
     private Transform _target;
 
+    private IAnimator _animator;
+    private IMovementContext _movementContext;
+
     private void Awake()
     {
-        _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<IAnimator>();
+        _movementContext = GetComponent<IMovementContext>();
+        if (_movementContext == null)
+            Debug.LogError("IMovementContext not found on " + gameObject.name);
     }
 
     public void Enter(object context = null)
@@ -21,16 +27,26 @@ public class ChaseBehaviour : MonoBehaviour, IBehaviour
         if (context == null || !(context is Transform)) return;
 
         _target = (Transform)context;
-        _agent.SetDestination(_target.position);
+        _movementContext.MoveTo(_target.position, MovemenMode.Quick);
+        _positionUpdateTimer = 0;
+
     }
 
     public void Exit()
     {
-        _agent.ResetPath();
+        _movementContext.ResetPath();
+        _positionUpdateTimer = 0;
+        _target = null;
     }
 
     public void Tick()
     {
-
+        if (_positionUpdateTimer < m_positionUpdateTime)
+        {
+            _positionUpdateTimer += Time.deltaTime;
+            return;
+        }
+        _positionUpdateTimer = 0;
+        _movementContext.MoveTo(_target.position, MovemenMode.Quick);
     }
 }
