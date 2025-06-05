@@ -19,7 +19,7 @@ public class Boat : MonoBehaviour
         animator = GetComponent<Animator>();
         if (Cinematic)
         {
-            player.GetComponent<StarterAssetsInputs>().lockPlayer(false);
+            player.GetComponent<StarterAssetsInputs>().lockPlayer(false, false);
             player.transform.position = transform.position;
             player.GetComponent<PlayerAnimations>().standingSize = 1f;
             player.transform.parent = transform;
@@ -32,7 +32,8 @@ public class Boat : MonoBehaviour
     {
         player.GetComponent<StarterAssetsInputs>().unlockPlayer();
         player.transform.parent = null;
-        player.transform.rotation = Quaternion.Euler(0, player.transform.rotation.y, 0);
+        float yRotation = player.transform.eulerAngles.y;
+        player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
         player.GetComponent<PlayerAnimations>().standingSize = 2f;
         DontDestroyOnLoad(player);
         Cinematic = false;

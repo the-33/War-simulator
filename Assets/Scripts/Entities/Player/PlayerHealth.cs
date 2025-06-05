@@ -27,6 +27,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public bool dead = false;
 
+    public NoDestroyList _noDestroyList;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -72,7 +74,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     private void OnEndDying()
     {
-        SceneManager.LoadScene(0);
+        _noDestroyList.destroyObjects(() => SceneManager.LoadScene(0));
     }
 
     public void TakeDamage(float damage)

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Missions : MonoBehaviour
@@ -11,14 +12,20 @@ public class Missions : MonoBehaviour
     public AudioClip PlaceBombAudio = null;
     public AudioClip EscapeAudio = null;
     public AudioClip MissionCompleteAudio = null;
+    public AudioClip MinefieldAudio = null;
 
-    public string PenDriveText;
-    public string HackComputerText;
-    public string WaitText;
-    public string GrabBombText;
-    public string PlaceBombText;
-    public string EscapeText;
-    public string MissionCompleteText;
+    private string PenDriveText = 
+        "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
+        "Grab Pen Drive containing important information (\udb84\ude9e)\n" +
+        "It is located in the coaster base of the enemy\n" +
+        "Stealth is very important";
+    private string HackComputerText = "";
+    private string WaitText = "";
+    private string GrabBombText = "";
+    private string PlaceBombText = "";
+    private string EscapeText = "";
+    private string MissionCompleteText = "";
+    [DoNotSerialize] public string MinefieldText = "";
 
     public GameObject helicopter;
 

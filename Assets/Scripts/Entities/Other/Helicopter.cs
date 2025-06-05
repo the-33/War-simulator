@@ -27,6 +27,8 @@ public class Helicopter : MonoBehaviour
 
     public Missions missions;
 
+    public NoDestroyList _noDestroyList;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -76,7 +78,7 @@ public class Helicopter : MonoBehaviour
     public void doAnimation()
     {
         Destroy(gameObject.GetComponent<Outlinable>());
-        player.GetComponent<StarterAssetsInputs>().lockPlayer(false);
+        player.GetComponent<StarterAssetsInputs>().lockPlayer(false, false);
         player.GetComponent<PlayerHealth>().m_health = 1000f;
         playerCollider.enabled = false;
         player.transform.position = playerPosition.position;
@@ -110,6 +112,6 @@ public class Helicopter : MonoBehaviour
 
         uiToActivate.SetActive(true);
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(0);
+        _noDestroyList.destroyObjects(() => SceneManager.LoadScene(0));
     }
 }

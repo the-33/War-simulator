@@ -436,7 +436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -38, y: -41}
+  m_AnchoredPosition: {x: -49.4, y: -37.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &2309288802036681063
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 1
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2051,6 +2051,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   velocidadEscritura: 0.075
   retardoDespuesAudio: 0.5
+  currentMessage: 
 --- !u!1 &7557934696793593459
 GameObject:
   m_ObjectHideFlags: 0
