@@ -16145,6 +16145,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2481527400069383782, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_waypointController
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 9
@@ -18460,6 +18464,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2481527400069383782, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_waypointController
+      value: 
+      objectReference: {fileID: 281553869}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 9

@@ -105,7 +105,7 @@ public class PlayerShooting : MonoBehaviour
     {
         int nextMagIndex = 0;
 
-        for(int i = 1; i<numberOfMags; i++)
+        for(int i = 0; i<numberOfMags; i++)
         {
             if (mags[i] > mags[nextMagIndex] && i != currentMagIndex) nextMagIndex = i;
         }
@@ -121,6 +121,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void replenishAmmo()
     {
+        currentMagIndex = 0;
         for (int i = 0; i < numberOfMags; i++)
         {
             mags[i] = maxBulletsPerMag;

@@ -38839,6 +38839,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6988561789801553020, guid: f16ca69f8af461447b2e70f95fa373b6, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7125283770145168369, guid: f16ca69f8af461447b2e70f95fa373b6, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -39649,6 +39653,10 @@ PrefabInstance:
     - target: {fileID: 7708868948771492924, guid: e93dc9355d200c24e8768382641bceae, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708868948771492924, guid: e93dc9355d200c24e8768382641bceae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
