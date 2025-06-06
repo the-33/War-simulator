@@ -70,6 +70,8 @@ MonoBehaviour:
   MissionCompleteAudio: {fileID: 0}
   MinefieldAudio: {fileID: 0}
   helicopter: {fileID: 0}
+  enemysAfterHack: {fileID: 0}
+  enemysAfterPlacingBomb: {fileID: 0}
 --- !u!114 &8787592756788928960
 MonoBehaviour:
   m_ObjectHideFlags: 0

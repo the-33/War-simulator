@@ -36,7 +36,7 @@ public class LimitController : MonoBehaviour
         {
             isPlayer = true;
             lastRadioMessage = radio.currentMessage;
-            radio.TransmitirMensaje(missions.MinefieldText, missions.MinefieldAudio);
+            radio.TransmitirMensaje(missions.MinefieldText, missions.MinefieldAudio, 0.03f);
             timer = 0f; // Reinicia el tiempo cuando entra
         }
     }

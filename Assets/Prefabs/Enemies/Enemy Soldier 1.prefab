@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2113358895886419643}
   - component: {fileID: 52046875320389039}
   - component: {fileID: 5154927891661910223}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8369338976910159984}
   - component: {fileID: 6768954146885038453}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: DetectionBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 399}
-  m_SizeDelta: {x: 500, y: 50}
+  m_SizeDelta: {x: 243.91, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6768954146885038453
 MonoBehaviour:
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 7635971275034515961}
   - component: {fileID: 1651158655287975866}
   - component: {fileID: 6253749887578904658}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3745516118183261237}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 7244454642632442575}
   - component: {fileID: 8679972773595537098}
   - component: {fileID: 7590701182027247198}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

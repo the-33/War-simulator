@@ -103,6 +103,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         IfakUI.updateIfak(fillAmount, selected);
     }
 
+    public void ReplenishIfak()
+    {
+        remainingHeals = maxHeals;
+        UpdateIfakUI(false);
+    }
+
     public void TakeDamage(float damage)
     {
         m_health -= damage;

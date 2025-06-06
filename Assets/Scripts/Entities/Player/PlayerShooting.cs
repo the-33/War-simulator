@@ -79,8 +79,14 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
+    public void ResetBulletPool()
+    {
+        bulletPool = new();
+    }
+
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        ResetBulletPool();
         globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
         normalProfile = globalVolume.profile;
     }
@@ -115,10 +121,10 @@ public class PlayerShooting : MonoBehaviour
 
     public void replenishAmmo()
     {
-        for (int i = 1; i < numberOfMags; i++)
+        for (int i = 0; i < numberOfMags; i++)
         {
             mags[i] = maxBulletsPerMag;
-            uIMags[i].updateMag(1, i == currentMagIndex);
+            uIMags[i].updateMag(1f, i == currentMagIndex);
         }
     }
 
@@ -160,6 +166,7 @@ public class PlayerShooting : MonoBehaviour
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        globalVolume = GameObject.Find("Global Volume").GetComponent<Volume>();
 
         _input = GetComponent<StarterAssetsInputs>();
         _health = GetComponent<PlayerHealth>();

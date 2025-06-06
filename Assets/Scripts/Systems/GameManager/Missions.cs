@@ -27,6 +27,7 @@ public class Missions : MonoBehaviour
     private string WaitText =
         "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
         "Wait until night inside the tent behind the Hangar(\udb81\udd08)\n" +
+        "There are provisions and ammo inside the tent for you\n" +
         "Exit the hangar through the back door\n" +
         "Theres too many enemies wandering arround";
     private string GrabBombText = 
@@ -47,16 +48,17 @@ public class Missions : MonoBehaviour
         "<size=36><b>Mission complete</b></size>\n<size=12> </size>\n" +
         "Good job, you're heading home now\n";
     public string MinefieldText { get; private set; } =
-        "<size=36><b>WARNING \uf071</b></size>\n<size=12> </size>\n" +
-        "You are in a minefield, go back where you came from inmediately(\udb83\uddda)\n" +
-        "The mission is at risk\n";
+        "<color=red><size=36><b>WARNING \uea6c</b></size>\n<size=12> </size>\n" +
+        "You are in a minefield, go back where you came from inmediately(\udb83\uddda)\n</color>";
 
     public GameObject helicopter;
+    public GameObject enemysAfterHack;
+    public GameObject enemysAfterPlacingBomb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        DontDestroyOnLoad(enemysAfterPlacingBomb);
     }
 
     // Update is called once per frame
@@ -78,6 +80,7 @@ public class Missions : MonoBehaviour
     public void WaitMission()
     {
         radio.TransmitirMensaje(WaitText, WaitAudio);
+        enemysAfterHack.SetActive(true);
     }
 
     public void GrabBombMission()
@@ -93,6 +96,7 @@ public class Missions : MonoBehaviour
     public void EscapeMission()
     {
         radio.TransmitirMensaje(EscapeText, EscapeAudio);
+        enemysAfterPlacingBomb.SetActive(true);
         helicopter.SetActive(true);
         helicopter.GetComponent<Helicopter>().toggleHelicopterDust();
 

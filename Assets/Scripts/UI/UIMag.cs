@@ -28,6 +28,12 @@ public class UIMag : MonoBehaviour
             fillImage.color = new Color32(255, 255, 0, 148);
             selectedImage.color = new Color32(255, 255, 0, 197);
         }
+        else
+        {
+            _image.color = new Color32(255, 255, 255, 197);
+            fillImage.color = new Color32(255, 255, 255, 148);
+            selectedImage.color = new Color32(255, 255, 255, 197);
+        }
     }   
 
     void Awake()

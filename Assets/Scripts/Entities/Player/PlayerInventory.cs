@@ -17,6 +17,8 @@ public class PlayerInventory : MonoBehaviour
 
     private PlayerInteract _interact;
     private StarterAssetsInputs _input;
+    private PlayerShooting _shooting;
+    private PlayerHealth _health;
 
     public LoadingCircle _loading;
     public VideoPlayer computerPlayer;
@@ -58,6 +60,9 @@ public class PlayerInventory : MonoBehaviour
     {
         _interact = GetComponent<PlayerInteract>();
         _input = GetComponent<StarterAssetsInputs>();
+        _shooting = GetComponent<PlayerShooting>();
+        _health = GetComponent<PlayerHealth>();
+
         missions.PenDriveMission();
     }
 
@@ -159,7 +164,7 @@ public class PlayerInventory : MonoBehaviour
                 hasWaited = true;
                 _interact.GetCurrentInteractable().GetComponent<Outlinable>().enabled = false;
                 _input.lockPlayer(true);
-                sceneLoader.LoadScene(sceneNightName, () => { missions.GrabBombMission(); gameObject.transform.position = tentWakeUpPoint.position; gameObject.transform.rotation = tentWakeUpPoint.rotation; _input.unlockPlayer(); });
+                sceneLoader.LoadScene(sceneNightName, () => { missions.GrabBombMission(); gameObject.transform.position = tentWakeUpPoint.position; gameObject.transform.rotation = tentWakeUpPoint.rotation; _shooting.replenishAmmo(); _health.ReplenishIfak(); _input.unlockPlayer(); });
             }
         }
         else if (_interact.GetCurrentInteractable().CompareTag(HelicopterTag))

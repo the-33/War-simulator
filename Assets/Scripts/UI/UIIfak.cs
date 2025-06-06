@@ -34,6 +34,12 @@ public class UIIfak : MonoBehaviour
             fillImage.color = new Color32(255, 255, 0, 72);
             selectedImage.color = new Color32(255, 255, 0, 197);
         }
+        else
+        {
+            _image.color = new Color32(255, 255, 255, 197);
+            fillImage.color = new Color32(255, 255, 255, 72);
+            selectedImage.color = new Color32(255, 255, 255, 197);
+        }
     }
 
     void Awake()

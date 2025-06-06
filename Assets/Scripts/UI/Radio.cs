@@ -8,6 +8,7 @@ public class Radio : MonoBehaviour
     public AudioSource audioSource; // Asigna esto también
     public float velocidadEscritura = 0.05f; // Tiempo entre letras
     public float retardoDespuesAudio = 0.2f;
+    private float velocidadEscrituraActual;
 
     private Coroutine escrituraActual;
     private Coroutine animacionTextoActual;
@@ -24,11 +25,13 @@ public class Radio : MonoBehaviour
     {
     }
 
-    public void TransmitirMensaje(string texto, AudioClip audioOpcional = null)
+    public void TransmitirMensaje(string texto, AudioClip audioOpcional = null, float velocidadEscritura = 0)
     {
         if (escrituraActual != null) StopCoroutine(escrituraActual);
 
         if (animacionTextoActual != null) StopCoroutine(animacionTextoActual);
+
+        velocidadEscrituraActual = (velocidadEscritura == 0) ? this.velocidadEscritura : velocidadEscritura;
 
         currentMessage = texto;
         escrituraActual = StartCoroutine(ProcesarTransmision(texto, audioOpcional));
@@ -73,7 +76,7 @@ public class Radio : MonoBehaviour
             resultado += texto[i];
             consolaTexto.text = resultado + (mostrarCursor ? "<size=70%>▌</size>" : "");
             i++;
-            yield return new WaitForSeconds(velocidadEscritura);
+            yield return new WaitForSeconds(velocidadEscrituraActual);
         }
 
         consolaTexto.text = resultado;
