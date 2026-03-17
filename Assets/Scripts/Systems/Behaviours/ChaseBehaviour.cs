@@ -22,11 +22,16 @@ public class ChaseBehaviour : MonoBehaviour, IBehaviour
             Debug.LogError("IMovementContext not found on " + gameObject.name);
     }
 
-    public void Enter(object context = null)
+    public void Enter(Transform target)
     {
-        if (context == null || !(context is Transform)) return;
+        if (target == null)
+        {
+            _isFinished = true;
+            return;
+        }
 
-        _target = (Transform)context;
+        _target = target;
+        _isFinished = false;
         _movementContext.MoveTo(_target.position, MovemenMode.Quick);
         _positionUpdateTimer = 0;
 
@@ -37,10 +42,17 @@ public class ChaseBehaviour : MonoBehaviour, IBehaviour
         _movementContext.ResetPath();
         _positionUpdateTimer = 0;
         _target = null;
+        _isFinished = false;
     }
 
     public void Tick()
     {
+        if (_target == null)
+        {
+            _isFinished = true;
+            return;
+        }
+
         if (_positionUpdateTimer < m_positionUpdateTime)
         {
             _positionUpdateTimer += Time.deltaTime;

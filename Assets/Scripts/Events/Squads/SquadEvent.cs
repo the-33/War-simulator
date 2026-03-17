@@ -13,5 +13,6 @@ public class SquadEvent
 public enum SquadEventType
 {
     EnemyDetected,
+    UnderAttack,
     Testing
 }

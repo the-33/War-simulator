@@ -103,7 +103,11 @@ public class VisionController : MonoBehaviour
         if (lineClear)
         {
             lastSeenPosition = player.position;
-            suspicionLevel += suspicionIncreaseRate * checkInterval;
+            
+            // Suspicion increases faster the closer the player is
+            float distanceRatio = distance / viewRadius; // 0 to 1
+            float proximityMultiplier = 1f + (1f - distanceRatio) * 2f; // 1x to 3x based on distance
+            suspicionLevel += suspicionIncreaseRate * proximityMultiplier * checkInterval;
             suspicionLevel = Mathf.Min(suspicionLevel, confirmationThreshold + overflowThreshold);
 
             if (!hasTriggeredSuspicion && suspicionLevel >= suspicionThreshold)
@@ -184,6 +188,8 @@ public class VisionController : MonoBehaviour
 
         return distance <= (viewRadius * actionRangeMult) && angleBetween <= viewAngle / 2f;
     }
+
+    public void SetMaxSuspicion() => suspicionLevel = confirmationThreshold + overflowThreshold;
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

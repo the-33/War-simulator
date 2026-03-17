@@ -13,6 +13,8 @@ public class Missions : MonoBehaviour
     public AudioClip EscapeAudio = null;
     public AudioClip MissionCompleteAudio = null;
     public AudioClip MinefieldAudio = null;
+    
+    
 
     private string PenDriveText = 
         "<size=36><b>Current mission</b></size>\n<size=12> </size>\n" +
@@ -50,6 +52,8 @@ public class Missions : MonoBehaviour
     public string MinefieldText { get; private set; } =
         "<color=red><size=36><b>WARNING \uea6c</b></size>\n<size=12> </size>\n" +
         "You are in a minefield, go back where you came from inmediately(\udb83\uddda)\n</color>";
+
+    
 
     public GameObject helicopter;
     public GameObject enemysAfterHack;
@@ -106,4 +110,6 @@ public class Missions : MonoBehaviour
     {
         if (radio.isActiveAndEnabled) radio.TransmitirMensaje(MissionCompleteText, MissionCompleteAudio);
     }
+
+    
 }

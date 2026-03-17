@@ -4,10 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class MenuSceneManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Radio radio;
+    public AudioClip menuAudio = null;
+    public string menuText = "UNDERCOVER OPERATIONS ";
     void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        radio.TransmitirMensaje(menuText,menuAudio);
     }
 
     // Update is called once per frame
