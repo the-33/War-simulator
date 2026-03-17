@@ -1282,6 +1282,18 @@ PrefabInstance:
       propertyPath: isNight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1414,6 +1426,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1524,6 +1548,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2687,6 +2723,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3360,6 +3408,18 @@ PrefabInstance:
       propertyPath: isNight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3713,6 +3773,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4335,6 +4407,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5989,6 +6073,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8627,6 +8723,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9046,6 +9154,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9942,6 +10062,18 @@ PrefabInstance:
       propertyPath: isNight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10477,6 +10609,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11066,6 +11210,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12178,6 +12334,18 @@ PrefabInstance:
       propertyPath: isNight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12813,6 +12981,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13119,6 +13299,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13360,6 +13552,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13976,6 +14180,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15538,6 +15754,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16748,6 +16976,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17055,6 +17295,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19195,6 +19447,18 @@ PrefabInstance:
       propertyPath: isNight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19305,6 +19569,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19532,6 +19808,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20320,6 +20608,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22945,6 +23245,18 @@ PrefabInstance:
       propertyPath: isNight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23123,6 +23435,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24285,6 +24609,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25137,6 +25473,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25242,6 +25590,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25710,6 +26070,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: lanternOn
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28316,6 +28688,18 @@ PrefabInstance:
       propertyPath: lanternOn
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28539,6 +28923,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29712,6 +30108,18 @@ PrefabInstance:
     - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: isNight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: viewRadius
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionDecayRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: suspicionIncreaseRate
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
