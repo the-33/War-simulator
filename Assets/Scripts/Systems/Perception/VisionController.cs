@@ -17,7 +17,7 @@ public class VisionController : MonoBehaviour
     [Range(0, 1)] public float nightVisionMultiplier = 0.5f; // Reduce view radius and range at night
 
     public bool lanternOn = false;
-    Light lantern;
+    public Light lantern;
 
     [Range(0, 1)]
     public float actionRangeMult = 0.8f;
@@ -60,16 +60,16 @@ public class VisionController : MonoBehaviour
 
     private void Start()
     {
-        lantern = GetComponentInChildren<Light>();
+        if (lantern == null) lantern = GetComponentInChildren<Light>();
         if (lantern == null)
         {
             Debug.LogWarning("No Light found in children for night vision.");
         }
 
-        if (lanternOn) lantern.enabled = true;
-        else lantern.enabled = false;
+        if (lanternOn && isNight) lantern.gameObject.SetActive(true);
+        else lantern.gameObject.SetActive(false);
 
-        if (lanternOn && lantern.enabled) isNight = false; // If lantern is on, it's not night for the vision system
+        if (lantern.gameObject.activeSelf) isNight = false; // If lantern is on, it's not night for the vision system
 
         viewAngle *= isNight ? nightVisionMultiplier : 1f;
         viewRadius *= isNight ? nightVisionMultiplier : 1f;

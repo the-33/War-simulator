@@ -15213,8 +15213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f533a57c9bd42f5438b35650c3365399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 50
-  accSprintMultiplier: 4
+  acceleration: 20
+  accSprintMultiplier: 9
   lookSensitivity: 1
   dampingCoefficient: 5
   focusOnEnable: 1
