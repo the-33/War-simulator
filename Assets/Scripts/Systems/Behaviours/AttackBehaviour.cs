@@ -15,6 +15,8 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
 
     public WeaponController m_weaponController;
 
+    public float m_innaccuracyRange = 6f; // Range for random inaccuracy
+
     private void Awake()
     {
         _movementContext = GetComponent<IMovementContext>();
@@ -58,18 +60,11 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
             return;
         }
 
-        //if (_attackTimer < m_attackTime)
-        //{
-        //    _attackTimer += Time.deltaTime;
-        //    return; // Wait for the attack cooldown
-        //}
-        //_attackTimer = 0f; // Reset the attack timer
-
-        //Handle the attack logic here
-
-
         Vector3 target = _target.transform.position + new Vector3(0, 1f, 0);
         m_weaponController.m_firePoint.transform.LookAt(target);
+        // Add a small random offset to the aim to simulate inaccuracy
+        Vector3 randomOffset = new Vector3(Random.Range(-m_innaccuracyRange, m_innaccuracyRange), Random.Range(-m_innaccuracyRange, m_innaccuracyRange), Random.Range(-m_innaccuracyRange, m_innaccuracyRange));
+        m_weaponController.m_firePoint.transform.rotation *= Quaternion.Euler(randomOffset);
 
         Vector3 direction = _target.position - transform.position;
         direction.y = 0f; // Elimina la componente vertical
