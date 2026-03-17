@@ -14,7 +14,7 @@ public class VisionController : MonoBehaviour
     public LayerMask obstacleMask;
 
     public bool isNight = false;
-    public float nightVisionMultiplier = 0.5f; // Reduce view radius and range at night
+    [Range(0, 1)] public float nightVisionMultiplier = 0.5f; // Reduce view radius and range at night
 
     public bool lanternOn = false;
     Light lantern;
