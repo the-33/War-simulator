@@ -69,33 +69,33 @@ public class Missions : MonoBehaviour
 
     public void PenDriveMission()
     {
-        radio.TransmitirMensaje(PenDriveText, PenDriveAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(PenDriveText, PenDriveAudio);
     }
 
     public void HackComputerMission()
     {
-        radio.TransmitirMensaje(HackComputerText, HackComputerAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(HackComputerText, HackComputerAudio);
     }
 
     public void WaitMission()
     {
-        radio.TransmitirMensaje(WaitText, WaitAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(WaitText, WaitAudio);
         enemysAfterHack.SetActive(true);
     }
 
     public void GrabBombMission()
     {
-        radio.TransmitirMensaje(GrabBombText, GrabBombAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(GrabBombText, GrabBombAudio);
     }
 
     public void PlaceBombMission()
     {
-        radio.TransmitirMensaje(PlaceBombText, PlaceBombAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(PlaceBombText, PlaceBombAudio);
     }
 
     public void EscapeMission()
     {
-        radio.TransmitirMensaje(EscapeText, EscapeAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(EscapeText, EscapeAudio);
         enemysAfterPlacingBomb.SetActive(true);
         helicopter.SetActive(true);
         helicopter.GetComponent<Helicopter>().toggleHelicopterDust();
@@ -104,6 +104,6 @@ public class Missions : MonoBehaviour
 
     public void MissionComplete()
     {
-        radio.TransmitirMensaje(MissionCompleteText, MissionCompleteAudio);
+        if (radio.isActiveAndEnabled) radio.TransmitirMensaje(MissionCompleteText, MissionCompleteAudio);
     }
 }
