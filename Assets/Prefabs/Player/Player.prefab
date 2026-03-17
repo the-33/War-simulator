@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 6227136581878033598}
   - component: {fileID: 1047817725088507528}
   - component: {fileID: 7656239864083084657}
+  - component: {fileID: -7379253811611377328}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -768,6 +769,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9179330517485575484, guid: a8fe9b7ffc019ef428d53cdf756c0968, type: 3}
   shootingPoint: {fileID: 4612741492220014195}
   shootingForce: 500
+  gunshotSoundRadius: 50
   maxBulletsInScene: 20
   normalProfile: {fileID: 11400000, guid: 3dfe4f2bc61d95647b2259e86a604c53, type: 2}
   nightVisionProfile: {fileID: 11400000, guid: db4e5945af5d7ac4ca19f3491d571798, type: 2}
@@ -899,6 +901,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioListener: {fileID: 0}
+--- !u!114 &-7379253811611377328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708868948771492924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315e97a69d522f247ae523d2c50ccd2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_walkSoundRadius: 8
+  m_walkInterval: 0.55
+  m_sprintSoundRadius: 15
+  m_sprintInterval: 0.35
+  m_moveMinSpeed: 0.5
+  m_sprintMinSpeed: 5
 --- !u!1001 &3222558297760095644
 PrefabInstance:
   m_ObjectHideFlags: 0

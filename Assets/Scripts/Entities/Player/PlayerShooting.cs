@@ -25,6 +25,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform shootingPoint;
     public float shootingForce;
+    public float gunshotSoundRadius = 35f;
 
     private List<GameObject> bulletPool = new();
     public int maxBulletsInScene = 20;
@@ -154,6 +155,8 @@ public class PlayerShooting : MonoBehaviour
         }
         
         bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * shootingForce, ForceMode.VelocityChange);
+
+        SoundEmitter.Emit(shootingPoint.position, gunshotSoundRadius);
 
         mags[currentMagIndex]--;
         uIMags[currentMagIndex].updateMag(mags[currentMagIndex] / (float)maxBulletsPerMag, true);

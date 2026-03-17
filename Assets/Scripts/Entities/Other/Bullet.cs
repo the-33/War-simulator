@@ -21,6 +21,8 @@ public class Bullet : MonoBehaviour
     public List<GameObject> decals = new();
 
     public GameObject defaultDecal;
+    [Header("Sound")]
+    public float m_impactSoundRadius = 20f;
 
     public void ResetBullet()
     {
@@ -61,6 +63,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        SoundEmitter.Emit(transform.position, m_impactSoundRadius);
+
         IDamageable context = null;
 
         collision.gameObject.TryGetComponent(out context);
