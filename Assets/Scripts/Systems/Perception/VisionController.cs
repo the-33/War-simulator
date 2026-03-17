@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 public class VisionController : MonoBehaviour
@@ -11,6 +12,12 @@ public class VisionController : MonoBehaviour
     [Range(0, 360)] public float viewAngle = 90f;
     public LayerMask targetMask; // Layer del Player
     public LayerMask obstacleMask;
+
+    public bool isNight = false;
+    public float nightVisionMultiplier = 0.5f; // Reduce view radius and range at night
+
+    public bool lanternOn = false;
+    Light lantern;
 
     [Range(0, 1)]
     public float actionRangeMult = 0.8f;
@@ -50,6 +57,23 @@ public class VisionController : MonoBehaviour
     private void OnEnable() => StartCoroutine(VisionCheckCoroutine());
 
     private void OnDisable() => StopAllCoroutines();
+
+    private void Start()
+    {
+        lantern = GetComponentInChildren<Light>();
+        if (lantern == null)
+        {
+            Debug.LogWarning("No Light found in children for night vision.");
+        }
+
+        if (lanternOn) lantern.enabled = true;
+        else lantern.enabled = false;
+
+        if (lanternOn && lantern.enabled) isNight = false; // If lantern is on, it's not night for the vision system
+
+        viewAngle *= isNight ? nightVisionMultiplier : 1f;
+        viewRadius *= isNight ? nightVisionMultiplier : 1f;
+    }
 
     IEnumerator VisionCheckCoroutine()
     {

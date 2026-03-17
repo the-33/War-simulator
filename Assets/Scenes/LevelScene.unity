@@ -1023,6 +1023,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1965687822}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -1070,6 +1082,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1179,6 +1195,18 @@ PrefabInstance:
       propertyPath: m_waitTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 3
@@ -1226,6 +1254,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2708,6 +2740,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 1
@@ -2763,6 +2807,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4523,6 +4571,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -4578,6 +4638,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4713,6 +4777,18 @@ PrefabInstance:
     - target: {fileID: 2113358895886419643, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_LocalScale.x
@@ -5081,6 +5157,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 6
@@ -5128,6 +5216,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5264,6 +5356,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 2
@@ -5311,6 +5415,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5839,6 +5947,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -5887,6 +6007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Soldier 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5908,6 +6032,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1661210088}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 5
@@ -5955,6 +6091,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7052,6 +7192,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 219162251}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 6
@@ -7099,6 +7251,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7895,6 +8051,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 1
@@ -7950,6 +8118,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8301,7 +8473,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1581127142944816, guid: 263b05cd98ea4e14596f85c8a811508c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 694946413}
   m_SourcePrefab: {fileID: 100100000, guid: 263b05cd98ea4e14596f85c8a811508c, type: 3}
 --- !u!1001 &468756001
 PrefabInstance:
@@ -11002,8 +11177,28 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1547605165}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -11049,6 +11244,18 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11118,6 +11325,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -11165,6 +11384,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11832,6 +12055,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -11887,6 +12122,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12109,6 +12348,18 @@ PrefabInstance:
       propertyPath: m_waitTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 3
@@ -12164,6 +12415,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12443,6 +12698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Helicopter
       objectReference: {fileID: 0}
+    - target: {fileID: 3248234926409693804, guid: 4c26202bcbf932947bd6d89e716e0cfd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5354743956142023227, guid: 4c26202bcbf932947bd6d89e716e0cfd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 305.8
@@ -12618,8 +12877,28 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1535412425}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -12665,6 +12944,18 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13235,6 +13526,33 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4975203759756528, guid: 14c36f60fdada0942b6efdc93f6be53f, type: 3}
   m_PrefabInstance: {fileID: 694834118}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &694946409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1581127142944816, guid: 263b05cd98ea4e14596f85c8a811508c, type: 3}
+  m_PrefabInstance: {fileID: 464382941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &694946413
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694946409}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: dc1a343a3fb6c9d4dbac6f072699e912, type: 3}
 --- !u!1001 &697901197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14228,8 +14546,28 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 486490294}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -14275,6 +14613,18 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16082,6 +16432,18 @@ PrefabInstance:
     - target: {fileID: 2113358895886419643, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_LocalScale.x
@@ -18099,6 +18461,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1631304038}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 1
@@ -18146,6 +18520,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18441,6 +18819,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -18496,6 +18886,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18745,6 +19139,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -18792,6 +19198,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20102,8 +20512,28 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -20149,6 +20579,18 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20449,6 +20891,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -20505,6 +20959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Soldier 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20526,6 +20984,18 @@ PrefabInstance:
     - target: {fileID: 2113358895886419643, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
@@ -20582,6 +21052,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22576,6 +23050,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -22631,6 +23117,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23581,6 +24071,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1015055232}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 7
@@ -23628,6 +24130,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23769,7 +24275,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 199662, guid: d6786c9bcf7304f1f8c2bbc4231bd81e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1536824842}
   m_SourcePrefab: {fileID: 100100000, guid: d6786c9bcf7304f1f8c2bbc4231bd81e, type: 3}
 --- !u!1001 &1236782416
 PrefabInstance:
@@ -24472,6 +24981,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 6
@@ -24520,6 +25041,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Soldier 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24541,6 +25066,18 @@ PrefabInstance:
     - target: {fileID: 2113358895886419643, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
@@ -24597,6 +25134,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25245,6 +25786,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 2
@@ -25292,6 +25845,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25371,6 +25928,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 2029342485}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 3
@@ -25418,6 +25987,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25892,6 +26465,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 2
@@ -25939,6 +26524,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26105,6 +26694,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 864850435}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 131.0671
@@ -26316,6 +26917,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -26371,6 +26984,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27308,6 +27925,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -27363,6 +27992,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28127,6 +28760,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 604727250}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 1
@@ -28174,6 +28819,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28344,6 +28993,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 822d7d9d4bbfca44aaa2ecb3f0761c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1536824838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199662, guid: d6786c9bcf7304f1f8c2bbc4231bd81e, type: 3}
+  m_PrefabInstance: {fileID: 1234769054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1536824842
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536824838}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: c0ff423a11c3b459e9755ea58dcc82e3, type: 3}
 --- !u!1 &1537024800
 GameObject:
   m_ObjectHideFlags: 0
@@ -28665,8 +29341,28 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1748598233}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -28712,6 +29408,18 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29001,6 +29709,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 4
@@ -29048,6 +29768,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29729,6 +30453,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1134321043}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 7
@@ -29776,6 +30512,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32049,6 +32789,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1795685464}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8000003
@@ -35164,8 +35916,28 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 2081491738}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -35211,6 +35983,18 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35433,8 +36217,28 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 2002988339}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_alertedTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4577113507999874512, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_hearingRange
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
@@ -35481,6 +36285,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Soldier 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: isNight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774852115736234726, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: lanternOn
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35502,6 +36318,18 @@ PrefabInstance:
     - target: {fileID: 2113358895886419643, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
@@ -35558,6 +36386,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35838,6 +36670,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 6
@@ -35893,6 +36737,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36515,6 +37363,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 1
@@ -36570,6 +37430,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37130,6 +37994,18 @@ PrefabInstance:
       propertyPath: m_waitTime
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4043747023285912613, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_squadID
       value: 3
@@ -37185,6 +38061,10 @@ PrefabInstance:
     - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_Name
       value: Enemy Soldier 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078217601656619779, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37289,6 +38169,18 @@ PrefabInstance:
       propertyPath: m_waypointController
       value: 
       objectReference: {fileID: 1465467780}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: _maxHealth
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3904502455732215325, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
+      propertyPath: m_searchDuration
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5075143739229083129, guid: ebd2cdbcd692bd14c94e7a37c667c53e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 216.48595
