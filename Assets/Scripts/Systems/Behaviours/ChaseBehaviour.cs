@@ -22,9 +22,9 @@ public class ChaseBehaviour : MonoBehaviour, IBehaviour
             Debug.LogError("IMovementContext not found on " + gameObject.name);
     }
 
-    public void Enter(object context = null)
+    public void Enter(Transform target)
     {
-        if (context == null || !(context is Transform target))
+        if (target == null)
         {
             _isFinished = true;
             return;

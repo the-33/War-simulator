@@ -21,15 +21,8 @@ public class SearchBehaviour : MonoBehaviour, IBehaviour
         _animator = GetComponent<IAnimator>();
     }
 
-    public void Enter(object context = null)
+    public void Enter(SearchData data)
     {
-        if (context == null || !(context is SearchData))
-        {
-            Debug.LogError("SearchBehaviour requires a SearchData context.");
-            return;
-        }
-
-        var data = (SearchData)context;
         _searchZone = data.Position;
         _searchTime = data.Duration;
 

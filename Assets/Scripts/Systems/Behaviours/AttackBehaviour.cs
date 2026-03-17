@@ -26,10 +26,10 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
     }
 
 
-    public void Enter(object context = null)
+    public void Enter(Transform target)
     {
         _attackTimer = 0f;
-        _target = context as Transform;
+        _target = target;
 
         if (_target == null)
         {

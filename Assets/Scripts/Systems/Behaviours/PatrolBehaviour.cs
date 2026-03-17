@@ -24,9 +24,8 @@ public class PatrolBehaviour : MonoBehaviour, IBehaviour
             Debug.LogError("IMovementContext not found on " + gameObject.name);
     }
 
-    public void Enter(object context = null)
+    public void Enter()
     {
-
         if ((_patrolPoints == null || _patrolPoints.Length == 0) && m_waypointController != null)
         {
             _patrolPoints = m_waypointController.Waypoints;
