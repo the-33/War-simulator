@@ -27,11 +27,15 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
     public void Enter(object context = null)
     {
         _attackTimer = 0f;
-        if (context is Transform)
+        _target = context as Transform;
+
+        if (_target == null)
         {
-            _target = (Transform)context;
-            _movementContext.StopMoving(); ;
+            _animator.SetShoot(false);
+            return;
         }
+
+        _movementContext.StopMoving();
         _animator.SetShoot(true);
     }
 
@@ -41,11 +45,19 @@ public class AttackBehaviour : MonoBehaviour, IBehaviour
         _movementContext.StartMoving();
         _target = null;
         _animator.SetShoot(false);
-        m_weaponController.m_firePoint.transform.rotation = new Quaternion(0, 0, 0, 0);
+        if (m_weaponController != null && m_weaponController.m_firePoint != null)
+        {
+            m_weaponController.m_firePoint.transform.rotation = Quaternion.identity;
+        }
     }
 
     public void Tick()
     {
+        if (_target == null || m_weaponController == null || m_weaponController.m_firePoint == null)
+        {
+            return;
+        }
+
         //if (_attackTimer < m_attackTime)
         //{
         //    _attackTimer += Time.deltaTime;

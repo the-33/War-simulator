@@ -1,9 +1,9 @@
+using System;
+using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 using Utils.Attributes;
-using Interfaces;
-using System.Collections.Generic;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(VisionController))]
@@ -17,6 +17,13 @@ using UnityEngine.UIElements;
 [RequireComponent(typeof(MovementContext))]
 public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPerceptionReceiver
 {
+    private sealed class EnemyStateDefinition
+    {
+        public Action Enter;
+        public Action Tick;
+        public Action Exit;
+    }
+
     #region Private references
     private VisionController m_vision;
     private HearingController m_hearing;
@@ -37,10 +44,16 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
     //Alerted
     [SerializeField]
     private float m_alertedTime = 5f;
+    [SerializeField]
+    private float m_searchDuration = 5f;
+    [SerializeField, Range(0f, 1f)]
+    private float m_returnToPatrolChance = 0.2f;
     private float m_alertedTimer = 0f;
 
     private Vector3? m_suspectPosition; // Position to search when alerted
     private Transform m_target; // Target to chase or attack
+    private bool m_hasActiveState;
+    private readonly Dictionary<EnemyStateEnum, EnemyStateDefinition> m_stateDefinitions = new();
     #endregion
 
     #region Health
@@ -66,6 +79,8 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
 
         //Other
         m_animatorController = GetComponent<EnemyAnimatorController>();
+
+        ConfigureStateMachine();
     }
 
     private void Start()
@@ -94,204 +109,372 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
     #region State Machine
     public void ChangeState(EnemyStateEnum newState)
     {
-        var previousState = m_currentState;
+        if (m_hasActiveState && m_stateDefinitions.TryGetValue(m_currentState, out var currentStateDefinition))
+        {
+            currentStateDefinition.Exit?.Invoke();
+        }
+
         m_currentState = newState;
-        OnExitState(previousState);
-        OnEnterState(newState);
+        m_hasActiveState = true;
+
+        if (m_stateDefinitions.TryGetValue(newState, out var newStateDefinition))
+        {
+            newStateDefinition.Enter?.Invoke();
+        }
     }
 
     public bool TryChangeState(EnemyStateEnum newState)
     {
-        if (m_currentState == newState)
+        if (m_hasActiveState && m_currentState == newState)
             return false;
 
-        if (validTransitions.TryGetValue(newState, out var allowedFromStates) &&
-        allowedFromStates.Contains(m_currentState))
+        if (!m_hasActiveState)
         {
             ChangeState(newState);
             return true;
         }
+
+        if (validTransitions.TryGetValue(m_currentState, out var allowedNextStates) &&
+            allowedNextStates.Contains(newState))
+        {
+            ChangeState(newState);
+            return true;
+        }
+
         return false;
     }
 
-    public void OnEnterState(EnemyStateEnum state)
+    private void ConfigureStateMachine()
     {
-        switch (state)
-        {
-            case EnemyStateEnum.IDDLE_PATROL:
-                m_PatrolBehaviour?.Enter();
-                break;
-            case EnemyStateEnum.ALERTED:
-                m_alertedTimer = m_alertedTime;
-                break;
-            case EnemyStateEnum.SEARCHING:
-                m_SearchBehaviour?.Enter(new SearchData
-                {
-                    Position = m_suspectPosition ?? transform.position,
-                    Duration = 5f // Default search duration, can be adjusted
-                });
-                break;
-            case EnemyStateEnum.CHASING:
-                if (m_target == null)
-                {
-                    Debug.LogWarning("Chasing state entered without a target. Cannot chase.");
-                    return;
-                }
-                m_ChaseBehaviour?.Enter(m_target);
-                break;
-            case EnemyStateEnum.ATTACKING:
-                if (m_target == null)
-                {
-                    Debug.LogWarning("Attacking state entered without a target. Cannot attack.");
-                    return;
-                }
-                m_AttackBehaviour?.Enter(m_target);
-                break;
-            case EnemyStateEnum.LOST_TARGET:
-                m_SearchBehaviour?.Enter(new SearchData
-                {
-                    Position = m_suspectPosition ?? transform.position,
-                    Duration = 5f // Default search duration, can be adjusted
-                });
-                break;
-            case EnemyStateEnum.CALLING_FOR_BACKUP:
-            case EnemyStateEnum.DEAD:
-            default:
-                break;
-        }
-    }
+        m_stateDefinitions.Clear();
 
-    public void OnExitState(EnemyStateEnum state)
-    {
-        switch (state)
+        m_stateDefinitions[EnemyStateEnum.IDDLE_PATROL] = new EnemyStateDefinition
         {
-            case EnemyStateEnum.IDDLE_PATROL:
-                m_PatrolBehaviour?.Exit();
-                break;
-            case EnemyStateEnum.ALERTED:
-                m_alertedTimer = 0f;
-                break;
-            case EnemyStateEnum.SEARCHING:
-                m_SearchBehaviour?.Exit();
-                break;
-            case EnemyStateEnum.CHASING:
-                m_ChaseBehaviour?.Exit();
-                break;
-            case EnemyStateEnum.ATTACKING:
-                m_AttackBehaviour?.Exit();
-                break;
-            case EnemyStateEnum.LOST_TARGET:
-                m_SearchBehaviour?.Exit();
-                break;
-            case EnemyStateEnum.CALLING_FOR_BACKUP:
-            case EnemyStateEnum.DEAD:
-            default:
-                break;
-        }
+            Enter = () => m_PatrolBehaviour?.Enter(),
+            Tick = () => m_PatrolBehaviour?.Tick(),
+            Exit = () => m_PatrolBehaviour?.Exit()
+        };
+
+        m_stateDefinitions[EnemyStateEnum.ALERTED] = new EnemyStateDefinition
+        {
+            Enter = EnterAlertedState,
+            Tick = TickAlertedState,
+            Exit = ExitAlertedState
+        };
+
+        m_stateDefinitions[EnemyStateEnum.SEARCHING] = new EnemyStateDefinition
+        {
+            Enter = EnterSearchState,
+            Tick = TickSearchState,
+            Exit = ExitSearchState
+        };
+
+        m_stateDefinitions[EnemyStateEnum.CHASING] = new EnemyStateDefinition
+        {
+            Enter = EnterChaseState,
+            Tick = TickChaseState,
+            Exit = ExitChaseState
+        };
+
+        m_stateDefinitions[EnemyStateEnum.ATTACKING] = new EnemyStateDefinition
+        {
+            Enter = EnterAttackState,
+            Tick = TickAttackState,
+            Exit = ExitAttackState
+        };
+
+        m_stateDefinitions[EnemyStateEnum.LOST_TARGET] = new EnemyStateDefinition
+        {
+            Enter = EnterLostTargetState,
+            Tick = TickSearchState,
+            Exit = ExitSearchState
+        };
+
+        m_stateDefinitions[EnemyStateEnum.CALLING_FOR_BACKUP] = new EnemyStateDefinition();
+        m_stateDefinitions[EnemyStateEnum.DEAD] = new EnemyStateDefinition
+        {
+            Enter = EnterDeadState
+        };
     }
     #endregion
 
     private void Update()
     {
-        if (m_target != null)
+        if (HasValidTarget())
         {
             m_suspectPosition = m_target.position;
         }
 
-        switch (m_currentState)
+        if (!m_hasActiveState)
         {
-            case EnemyStateEnum.IDDLE_PATROL:
-                m_PatrolBehaviour?.Tick();
-                break;
-            case EnemyStateEnum.ALERTED:
-                m_alertedTimer -= Time.deltaTime;
-                if (m_alertedTimer <= 0f)
-                {
-                    if (Utilities.RandBool(0.2f))
-                    {
-                        TryChangeState(EnemyStateEnum.IDDLE_PATROL);
-                    }
-                    else
-                    {
-                        TryChangeState(EnemyStateEnum.SEARCHING);
-                    }
-                }
-                break;
+            return;
+        }
 
-            case EnemyStateEnum.SEARCHING:
-                m_SearchBehaviour?.Tick();
-                if (m_SearchBehaviour.IsFinished)
-                {
-                    TryChangeState(EnemyStateEnum.IDDLE_PATROL);
-                }
-                break;
-            case EnemyStateEnum.CHASING:
-                if (m_vision.IsOnActionRange(m_target.position))
-                {
-                    TryChangeState(EnemyStateEnum.ATTACKING);
-                }
-                m_ChaseBehaviour.Tick();
-                break;
-            case EnemyStateEnum.ATTACKING:
-                if (m_vision.IsOnActionRange(m_target.position))
-                {
-                    m_AttackBehaviour.Tick();
-                }
-                else
-                {
-                    TryChangeState(EnemyStateEnum.CHASING);
-                }
-                break;
-            case EnemyStateEnum.LOST_TARGET:
-                m_SearchBehaviour?.Tick();
-                if (m_SearchBehaviour.IsFinished)
-                {
-                    TryChangeState(EnemyStateEnum.IDDLE_PATROL);
-                }
-                break;
-            case EnemyStateEnum.CALLING_FOR_BACKUP:
-            case EnemyStateEnum.DEAD:
-            default:
-                break;
+        if (m_stateDefinitions.TryGetValue(m_currentState, out var stateDefinition))
+        {
+            stateDefinition.Tick?.Invoke();
+        }
+    }
+
+    private void EnterAlertedState()
+    {
+        m_alertedTimer = m_alertedTime;
+    }
+
+    private void TickAlertedState()
+    {
+        if (HasValidTarget())
+        {
+            TryChangeState(EnemyStateEnum.CHASING);
+            return;
+        }
+
+        m_alertedTimer -= Time.deltaTime;
+        if (m_alertedTimer > 0f)
+        {
+            return;
+        }
+
+        TryChangeState(Utilities.RandBool(m_returnToPatrolChance)
+            ? EnemyStateEnum.IDDLE_PATROL
+            : EnemyStateEnum.SEARCHING);
+    }
+
+    private void ExitAlertedState()
+    {
+        m_alertedTimer = 0f;
+    }
+
+    private void EnterSearchState()
+    {
+        m_SearchBehaviour?.Enter(CreateSearchData());
+    }
+
+    private void EnterLostTargetState()
+    {
+        m_SearchBehaviour?.Enter(CreateSearchData());
+    }
+
+    private void TickSearchState()
+    {
+        m_SearchBehaviour?.Tick();
+        if (m_SearchBehaviour != null && m_SearchBehaviour.IsFinished)
+        {
+            TryChangeState(EnemyStateEnum.IDDLE_PATROL);
+        }
+    }
+
+    private void ExitSearchState()
+    {
+        m_SearchBehaviour?.Exit();
+    }
+
+    private void EnterChaseState()
+    {
+        if (!HasValidTarget())
+        {
+            ClearTarget();
+            TryChangeState(EnemyStateEnum.LOST_TARGET);
+            return;
+        }
+
+        m_ChaseBehaviour?.Enter(m_target);
+    }
+
+    private void TickChaseState()
+    {
+        if (!HasValidTarget())
+        {
+            ClearTarget();
+            TryChangeState(EnemyStateEnum.LOST_TARGET);
+            return;
+        }
+
+        if (m_vision != null && m_vision.IsOnActionRange(m_target.position))
+        {
+            TryChangeState(EnemyStateEnum.ATTACKING);
+            return;
+        }
+
+        m_ChaseBehaviour?.Tick();
+    }
+
+    private void ExitChaseState()
+    {
+        m_ChaseBehaviour?.Exit();
+    }
+
+    private void EnterAttackState()
+    {
+        if (!HasValidTarget())
+        {
+            ClearTarget();
+            TryChangeState(EnemyStateEnum.LOST_TARGET);
+            return;
+        }
+
+        m_AttackBehaviour?.Enter(m_target);
+    }
+
+    private void TickAttackState()
+    {
+        if (!HasValidTarget())
+        {
+            ClearTarget();
+            TryChangeState(EnemyStateEnum.LOST_TARGET);
+            return;
+        }
+
+        if (m_vision == null || !m_vision.IsOnActionRange(m_target.position))
+        {
+            TryChangeState(EnemyStateEnum.CHASING);
+            return;
+        }
+
+        m_AttackBehaviour?.Tick();
+    }
+
+    private void ExitAttackState()
+    {
+        m_AttackBehaviour?.Exit();
+    }
+
+    private void EnterDeadState()
+    {
+        m_vision?.DisableBar();
+        m_animatorController?.TriggerDeath();
+    }
+
+    private SearchData CreateSearchData()
+    {
+        return new SearchData
+        {
+            Position = m_suspectPosition ?? transform.position,
+            Duration = m_searchDuration
+        };
+    }
+
+    private bool HasValidTarget()
+    {
+        return m_target != null && m_target.gameObject.activeInHierarchy;
+    }
+
+    private void TrackTarget(Transform target)
+    {
+        if (target == null)
+        {
+            return;
+        }
+
+        m_target = target;
+        m_suspectPosition = target.position;
+    }
+
+    private void ClearTarget()
+    {
+        m_target = null;
+    }
+
+    private bool IsCombatState(EnemyStateEnum state)
+    {
+        return state == EnemyStateEnum.CHASING || state == EnemyStateEnum.ATTACKING;
+    }
+
+    private void EngageKnownTarget()
+    {
+        if (!HasValidTarget())
+        {
+            return;
+        }
+
+        var desiredState = m_vision != null && m_vision.IsOnActionRange(m_target.position)
+            ? EnemyStateEnum.ATTACKING
+            : EnemyStateEnum.CHASING;
+
+        if (!TryChangeState(desiredState) && desiredState == EnemyStateEnum.ATTACKING)
+        {
+            TryChangeState(EnemyStateEnum.CHASING);
         }
     }
 
     #region IDamageable
     public void OnDeath()
     {
-        TryChangeState(EnemyStateEnum.DEAD);
-        m_vision.DisableBar();
-        m_animatorController.TriggerDeath();
+        if (m_currentState == EnemyStateEnum.DEAD)
+        {
+            return;
+        }
+
+        ChangeState(EnemyStateEnum.DEAD);
     }
 
     public void OnDamaged()
     {
-        m_animatorController.TriggerHit();
+        if (m_currentState == EnemyStateEnum.DEAD)
+        {
+            return;
+        }
+
+        m_animatorController?.TriggerHit();
+        m_vision?.SetMaxSuspicion();
+
+        Transform player = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (player != null)
+        {
+            TrackTarget(player);
+            m_squadController?.SendSquadEvent(SquadEventType.UnderAttack, player);
+
+            if (!IsCombatState(m_currentState))
+            {
+                TryChangeState(EnemyStateEnum.CHASING);
+            }
+
+            return;
+        }
+
+        m_suspectPosition = transform.position;
+        m_squadController?.SendSquadEvent(SquadEventType.UnderAttack, null);
+
+        if (!IsCombatState(m_currentState))
+        {
+            TryChangeState(EnemyStateEnum.ALERTED);
+        }
     }
     #endregion
 
     #region ISquadMember
     public void OnSquadEvent(SquadEvent squadEvent)
     {
-        Debug.Log($"Enemy {name} received squad event: {squadEvent.EventType} from Squad ID: {squadEvent.SquadID}");
         switch (squadEvent.EventType)
         {
             case SquadEventType.EnemyDetected:
                 if (squadEvent.Data is Transform target)
                 {
                     m_suspectPosition = target.position;
+                    if (!IsCombatState(m_currentState))
+                    {
+                        TryChangeState(EnemyStateEnum.ALERTED);
+                    }
+                }
+                break;
+
+            case SquadEventType.UnderAttack:
+                if (squadEvent.Data is Transform attacker)
+                {
+                    m_suspectPosition = attacker.position;
+                }
+
+                if (!IsCombatState(m_currentState))
+                {
                     TryChangeState(EnemyStateEnum.ALERTED);
                 }
-                else
-                {
-                    Debug.LogWarning($"Enemy {name} received EnemyDetected event with invalid data.");
-                }
                 break;
+
             case SquadEventType.Testing:
-                // Handle testing event if needed
                 break;
+
             default:
-                Debug.LogWarning($"Enemy {name} received unknown squad event type: {squadEvent.EventType}");
                 break;
         }
     }
@@ -301,40 +484,65 @@ public class EnemyController : MonoBehaviour, IDamageable, ISquadMember, IPercep
     public void OnSuspiciousSight(Vector3 position)
     {
         m_suspectPosition = position;
-        TryChangeState(EnemyStateEnum.ALERTED);
+        if (!IsCombatState(m_currentState))
+        {
+            TryChangeState(EnemyStateEnum.ALERTED);
+        }
     }
 
     public void OnConfirmedSight(Transform entity)
     {
+        if (entity == null || m_currentState == EnemyStateEnum.DEAD)
+        {
+            return;
+        }
+
+        TrackTarget(entity);
         m_squadController?.SendSquadEvent(SquadEventType.EnemyDetected, entity);
-        m_target = entity;
-        TryChangeState(EnemyStateEnum.CHASING);
+        EngageKnownTarget();
     }
 
     public void OnLostSight()
     {
-        m_target = null;
-        TryChangeState(EnemyStateEnum.LOST_TARGET);
+        if (m_currentState == EnemyStateEnum.DEAD)
+        {
+            return;
+        }
+
+        if (HasValidTarget())
+        {
+            m_suspectPosition = m_target.position;
+        }
+
+        ClearTarget();
+
+        if (IsCombatState(m_currentState))
+        {
+            TryChangeState(EnemyStateEnum.LOST_TARGET);
+        }
     }
 
     public void OnSuspiciousSound(Vector3 position)
     {
         m_suspectPosition = position;
-        TryChangeState(EnemyStateEnum.ALERTED);
+        if (!IsCombatState(m_currentState))
+        {
+            TryChangeState(EnemyStateEnum.ALERTED);
+        }
     }
 
     #endregion
 
     private static readonly Dictionary<EnemyStateEnum, HashSet<EnemyStateEnum>> validTransitions = new()
     {
-    { EnemyStateEnum.IDDLE_PATROL, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.LOST_TARGET, EnemyStateEnum.CALLING_FOR_BACKUP } },
-    { EnemyStateEnum.ALERTED, new() { EnemyStateEnum.IDDLE_PATROL, EnemyStateEnum.LOST_TARGET } },
-    { EnemyStateEnum.SEARCHING, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.LOST_TARGET } },
-    { EnemyStateEnum.CHASING, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.CALLING_FOR_BACKUP, EnemyStateEnum.ATTACKING, EnemyStateEnum.LOST_TARGET } },
-    { EnemyStateEnum.ATTACKING, new() { EnemyStateEnum.CHASING } },
-    { EnemyStateEnum.LOST_TARGET, new() { EnemyStateEnum.CHASING, EnemyStateEnum.ATTACKING } },
-    { EnemyStateEnum.CALLING_FOR_BACKUP, new() { EnemyStateEnum.CHASING } },
-    { EnemyStateEnum.DEAD, new() { EnemyStateEnum.IDDLE_PATROL, EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.CHASING, EnemyStateEnum.ATTACKING, EnemyStateEnum.LOST_TARGET, EnemyStateEnum.CALLING_FOR_BACKUP } }
+        { EnemyStateEnum.IDDLE_PATROL, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.SEARCHING, EnemyStateEnum.CHASING, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.ALERTED, new() { EnemyStateEnum.IDDLE_PATROL, EnemyStateEnum.SEARCHING, EnemyStateEnum.CHASING, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.SEARCHING, new() { EnemyStateEnum.IDDLE_PATROL, EnemyStateEnum.ALERTED, EnemyStateEnum.CHASING, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.CHASING, new() { EnemyStateEnum.ATTACKING, EnemyStateEnum.LOST_TARGET, EnemyStateEnum.ALERTED, EnemyStateEnum.CALLING_FOR_BACKUP, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.ATTACKING, new() { EnemyStateEnum.CHASING, EnemyStateEnum.LOST_TARGET, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.LOST_TARGET, new() { EnemyStateEnum.SEARCHING, EnemyStateEnum.IDDLE_PATROL, EnemyStateEnum.ALERTED, EnemyStateEnum.CHASING, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.CALLING_FOR_BACKUP, new() { EnemyStateEnum.ALERTED, EnemyStateEnum.CHASING, EnemyStateEnum.DEAD } },
+        { EnemyStateEnum.DEAD, new() }
     };
 }
 
